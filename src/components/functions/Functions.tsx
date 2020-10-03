@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Models = () => {
+const Functions = () => {
     return (
         <div>
-            Models
+            Functions
         </div>
     )
 }
 
-export default Models
+export default Functions

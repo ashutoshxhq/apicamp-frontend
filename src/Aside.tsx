@@ -7,6 +7,7 @@ import Settings from './icons/Settings'
 import User from './icons/User'
 import Search from './icons/Search'
 import PenAndRuler from './icons/PenAndRuler'
+import { Link, NavLink } from 'react-router-dom'
 
 const Aside = () => {
     return (
@@ -21,29 +22,29 @@ const Aside = () => {
                 <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull ps">
                     <ul className="nav flex-column" role="tablist">
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Latest Projects">
-                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg active" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab" aria-selected="true">
+                            <NavLink to="/models" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab" aria-selected="true">
                                 <PenAndRuler />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Metronic Features">
-                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_2" role="tab" aria-selected="false">
+                            <NavLink to="/functions" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_2" role="tab" aria-selected="false">
                                 <Pantone />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Project Management">
-                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
+                            <NavLink to="/storage" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
                                 <Cloud />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Project Management">
-                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
+                            <NavLink to="/extensions" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
                                 <Extensions />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Finance &amp; Accounting">
-                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_6" role="tab">
+                            <NavLink to="/settings" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_6" role="tab">
                                 <Settings />
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                     <div className="ps__rail-x"><div className="ps__thumb-x"></div></div><div className="ps__rail-y" ><div className="ps__thumb-y"></div></div></div>
@@ -183,7 +184,7 @@ const Aside = () => {
                         </div>
                     </div>
                     <div className="w-100 p-5">
-                        <button type="button" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </button>
+                        <Link to="/models/add" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </Link>
 
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Models = () => {
+const Settings = () => {
     return (
         <div>
-            Models
+            Settings
         </div>
     )
 }
 
-export default Models
+export default Settings

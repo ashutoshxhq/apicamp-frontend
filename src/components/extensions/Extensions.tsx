@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Models = () => {
+const Extensions = () => {
     return (
         <div>
-            Models
+            Extensions
         </div>
     )
 }
 
-export default Models
+export default Extensions

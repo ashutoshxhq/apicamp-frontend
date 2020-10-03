@@ -1,5 +1,5 @@
 import React from 'react'
-import AddPage from '../../icons/AddPage'
+import Edit from '../../icons/Edit'
 import Save from '../../icons/Save'
 
 const ModelSubheader = () => {
@@ -13,10 +13,10 @@ const ModelSubheader = () => {
                 </div>
                 <div className="d-flex align-items-center flex-wrap">
                     <button className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                        <AddPage />
-                        <span className="d-none d-md-inline"> Add New Record</span>
+                        <Edit />
+                        <span className="d-none d-md-inline"> Edit Model</span>
                     </button>
-                    <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2" disabled>
+                    <button className="btn btn-success btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2" disabled>
                         <Save />
                         <span className="d-none d-md-inline"> Save Model</span>
                     </button>

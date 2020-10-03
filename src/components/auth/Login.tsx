@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Models = () => {
+const Login = () => {
     return (
         <div>
-            Models
+            Login
         </div>
     )
 }
 
-export default Models
+export default Login
