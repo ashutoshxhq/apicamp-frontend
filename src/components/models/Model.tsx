@@ -7,9 +7,9 @@ import ModelSubheader from './ModelSubheader'
 const Model = () => {
     return (
         <div className="content d-flex flex-column flex-column-fluid">
-            <ModelSubheader />
             <div className="d-flex flex-column-fluid">
                 <div className="container-fluid">
+                    <ModelSubheader/>
                     <div className="card card-custom">
                         <div className="card-body">
                             <div className="col-xl-12">
@@ -19,6 +19,7 @@ const Model = () => {
                                         <h3 className="d-flex align-items-center text-dark font-weight-bold my-1 mr-3">Model Fields</h3>
                                     </div>
                                     <div className="d-flex align-items-center flex-wrap">
+                                        
                                         <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                                             <AddPage />
                                             <span className="d-none d-md-inline"> Add New Field</span>

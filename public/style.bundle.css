@@ -34671,6 +34671,8 @@ button {
   transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
   padding: 0.75rem 1.5rem;
   color: #7E8299; 
+}
+.aside .nav-link{
   border-radius:3rem;
   height: calc(2em + 1.65rem + 2px)!important;
   width: calc(2em + 1.65rem + 2px)!important;
@@ -60086,6 +60088,7 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
   background-color: #ffffff;
+  border-right: solid 1px #f2f5f9!important;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .aside-secondary-enabled .aside {
@@ -61469,7 +61472,7 @@ body {
   .aside-fixed.subheader-fixed .subheader {
     left: 100px; }
   .aside-fixed.aside-secondary-enabled.subheader-fixed .subheader {
-    left: 425px; }
+    left: 400px; }
   .aside-minimize.aside-fixed.subheader-fixed .subheader {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;

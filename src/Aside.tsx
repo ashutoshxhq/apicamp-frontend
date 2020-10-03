@@ -19,6 +19,7 @@ const Aside = () => {
                         <img alt="Logo" src="/logo.svg" className="max-h-50px" />
                     </a>
                 </div>
+
                 <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull ps">
                     <ul className="nav flex-column" role="tablist">
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Latest Projects">
@@ -84,6 +85,8 @@ const Aside = () => {
                                             </span>
                                         </span>
                                     </div>
+
+
                                     <div className="dropdown" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
                                         <a href="#/" className="btn btn-icon btn-default ml-2 h-40px w-40px flex-shrink-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span className="svg-icon svg-icon-primary svg-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -164,6 +167,8 @@ const Aside = () => {
                                     </div>
                                 </div>
                             </form>
+                            <div className="separator separator-dashed mt-5 mb-5"></div>
+
                             <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                             <div className="list list-hover">
                                 <div className="list-item hoverable active p-2 p-lg-3 mb-2">
@@ -184,6 +189,8 @@ const Aside = () => {
                         </div>
                     </div>
                     <div className="w-100 p-5">
+                        <div className="separator separator-dashed mt-5 mb-5"></div>
+
                         <Link to="/models/add" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </Link>
 
                     </div>
