@@ -4,7 +4,7 @@ import Edit from '../../icons/Edit'
 const ModelSubheader = () => {
     return (
         <div className="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
-            <div className="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <div className="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                 <div className="d-flex align-items-center flex-wrap mr-2">
                     <h5 className="text-dark font-weight-bold mt-2 mb-2 mr-5">Users Table</h5>
                     <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
