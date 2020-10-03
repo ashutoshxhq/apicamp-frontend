@@ -4,10 +4,9 @@ import Cloud from './icons/Cloud'
 import Extensions from './icons/Extensions'
 import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
-import Clipboard from './icons/Clipboard'
 import User from './icons/User'
 import Search from './icons/Search'
-import Plus from './icons/Plus'
+import PenAndRuler from './icons/PenAndRuler'
 
 const Aside = () => {
     return (
@@ -22,27 +21,27 @@ const Aside = () => {
                 <div className="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull ps">
                     <ul className="nav flex-column" role="tablist">
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Latest Projects">
-                            <a href="#/" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab" aria-selected="true">
-                                <Clipboard />
+                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg active" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab" aria-selected="true">
+                                <PenAndRuler />
                             </a>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Metronic Features">
-                            <a href="#/" className="nav-link btn btn-icon btn-clean btn-lg active" data-toggle="tab" data-target="#kt_aside_tab_2" role="tab" aria-selected="false">
+                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_2" role="tab" aria-selected="false">
                                 <Pantone />
                             </a>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Project Management">
-                            <a href="#/" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
+                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
                                 <Cloud />
                             </a>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Project Management">
-                            <a href="#/" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
+                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_4" role="tab">
                                 <Extensions />
                             </a>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Finance &amp; Accounting">
-                            <a href="#/" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_6" role="tab">
+                            <a href="#//" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_6" role="tab">
                                 <Settings />
                             </a>
                         </li>
@@ -50,12 +49,12 @@ const Aside = () => {
                     <div className="ps__rail-x"><div className="ps__thumb-x"></div></div><div className="ps__rail-y" ><div className="ps__thumb-y"></div></div></div>
                 <div className="aside-footer d-flex flex-column align-items-center flex-column-auto py-4 py-lg-10">
 
-                    <a href="#/" className="btn btn-icon btn-clean btn-lg w-40px h-40px mb-5" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
+                    <a href="#//" className="btn btn-icon btn-clean btn-lg w-40px h-40px mb-5" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
                         <span className="symbol symbol-30 symbol-lg-40">
                             <Search />
                         </span>
                     </a>
-                    <a href="#/" className="btn btn-icon btn-clean btn-lg w-40px h-40px" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
+                    <a href="#//" className="btn btn-icon btn-clean btn-lg w-40px h-40px" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
                         <span className="symbol symbol-30 symbol-lg-40">
                             <User />
                         </span>
@@ -85,7 +84,7 @@ const Aside = () => {
                                         </span>
                                     </div>
                                     <div className="dropdown" data-toggle="tooltip" title="" data-placement="left" data-original-title="Quick actions">
-                                        <a href="#" className="btn btn-icon btn-default ml-2 h-40px w-40px flex-shrink-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a href="#/" className="btn btn-icon btn-default ml-2 h-40px w-40px flex-shrink-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span className="svg-icon svg-icon-primary svg-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24" />
@@ -97,7 +96,7 @@ const Aside = () => {
                                         <div className="dropdown-menu dropdown-menu-md dropdown-menu-right" >
                                             <ul className="navi navi-hover py-5">
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-drop"></i>
                                                         </span>
@@ -105,7 +104,7 @@ const Aside = () => {
                                                     </a>
                                                 </li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-list-3"></i>
                                                         </span>
@@ -113,7 +112,7 @@ const Aside = () => {
                                                     </a>
                                                 </li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-rocket-1"></i>
                                                         </span>
@@ -124,7 +123,7 @@ const Aside = () => {
                                                     </a>
                                                 </li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-bell-2"></i>
                                                         </span>
@@ -132,7 +131,7 @@ const Aside = () => {
                                                     </a>
                                                 </li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-gear"></i>
                                                         </span>
@@ -141,7 +140,7 @@ const Aside = () => {
                                                 </li>
                                                 <li className="navi-separator my-3"></li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-magnifier-tool"></i>
                                                         </span>
@@ -149,7 +148,7 @@ const Aside = () => {
                                                     </a>
                                                 </li>
                                                 <li className="navi-item">
-                                                    <a href="#" className="navi-link">
+                                                    <a href="#/" className="navi-link">
                                                         <span className="navi-icon">
                                                             <i className="flaticon2-bell-2"></i>
                                                         </span>
@@ -184,7 +183,7 @@ const Aside = () => {
                         </div>
                     </div>
                     <div className="w-100 p-5">
-                        <button type="button" className="btn btn-success btn-lg btn-block"><Plus /> Create New Model</button>
+                        <button type="button" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </button>
 
                     </div>
                 </div>
