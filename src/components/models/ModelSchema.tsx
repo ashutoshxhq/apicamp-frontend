@@ -1,9 +1,16 @@
 import React from 'react'
+import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
 import ModelSubheader from './ModelSubheader'
+import { addFieldModelState } from '../../store/models'
+import AddField from './AddField'
 
 const ModelSchema = () => {
+    const [, setFieldModelState] = useRecoilState(addFieldModelState)
+    const handleOpenAddFieldModel = () =>{
+        setFieldModelState(true)
+    }
     return (
         <div className="content d-flex flex-column flex-column-fluid">
             <div className="d-flex flex-column-fluid">
@@ -16,10 +23,11 @@ const ModelSchema = () => {
                                 <span className="text-muted mt-3 font-weight-bold font-size-sm">4 fields, 1 primary key and 0 unique key</span>
                             </h3>
                             <div className="card-toolbar">
-                                <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                <button onClick={handleOpenAddFieldModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                                     <AddPage />
                                     <span className="d-none d-md-inline"> Add New Field</span>
                                 </button>
+                                <AddField/>
                             </div>
                         </div>
                         <div className="card-body pt-0">
@@ -176,7 +184,7 @@ const ModelSchema = () => {
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr key="1">
+                                            <tr key="2">
                                                 <td className="pl-0">
                                                     <label className="checkbox checkbox-lg checkbox-inline">
                                                         <input type="checkbox" value="1" />

@@ -1,6 +1,5 @@
 import React from 'react'
 import AddPage from '../../icons/AddPage'
-import Text from '../../icons/Text'
 import ModelSubheader from './ModelSubheader'
 
 const ModelData = () => {
@@ -37,7 +36,7 @@ const ModelData = () => {
                             <span></span>
                           </label>
                         </th>
-                        
+
                         <th style={{ minWidth: "150px" }}>Name</th>
 
 
@@ -59,20 +58,20 @@ const ModelData = () => {
                             <span></span>
                           </label>
                         </td>
-                       
+
                         <td>
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
                             {"Ashutosh"}
 
                           </span>
-                          
+
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
                             {"idkashutosh@gmail.com"}
 
                           </span>
-                         
+
 
                         </td>
                         <td className="">
@@ -80,7 +79,7 @@ const ModelData = () => {
                             {"+916207689508"}
 
                           </span>
-                         
+
                         </td>
 
 
@@ -158,27 +157,27 @@ const ModelData = () => {
                           </a>
                         </td>
                       </tr>
-                      <tr key="1">
+                      <tr key="2">
                         <td className="pl-0">
                           <label className="checkbox checkbox-lg checkbox-inline">
                             <input type="checkbox" value="1" />
                             <span></span>
                           </label>
                         </td>
-                       
+
                         <td>
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
                             {"Ashutosh"}
 
                           </span>
-                          
+
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
                             {"idkashutosh@gmail.com"}
 
                           </span>
-                         
+
 
                         </td>
                         <td className="">
@@ -186,7 +185,7 @@ const ModelData = () => {
                             {"+916207689508"}
 
                           </span>
-                         
+
                         </td>
 
 

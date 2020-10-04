@@ -16,3 +16,7 @@
 .model-mode-active .svg-icon svg g [fill]{
     fill: #272d35;
 }
+ .model-show{
+    display: block;
+    opacity: 1;
+}
