@@ -191,7 +191,7 @@ const Aside = () => {
                     <div className="w-100 p-5">
                         <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                        <Link to="/models/add" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </Link>
+                        <Link to="/models/id/schema" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </Link>
 
                     </div>
                 </div>
