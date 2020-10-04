@@ -37,14 +37,12 @@ const ModelData = () => {
                             <span></span>
                           </label>
                         </th>
-                        <th className="pr-0" style={{ width: "80px" }}>
-                          Field
-                      </th>
-                        <th style={{ minWidth: "150px" }}></th>
+                        
+                        <th style={{ minWidth: "150px" }}>Name</th>
 
 
-                        <th className="text-left" style={{ minWidth: "150px" }}>null value</th>
-                        <th style={{ minWidth: "150px" }}>default</th>
+                        <th className="text-left" style={{ minWidth: "150px" }}>Email</th>
+                        <th style={{ minWidth: "150px" }}>Phone</th>
                         <th
                           className="pr-0 text-right"
                           style={{ minWidth: "150px" }}
@@ -61,41 +59,28 @@ const ModelData = () => {
                             <span></span>
                           </label>
                         </td>
-                        <td className="pr-0">
-                          <div className="symbol symbol-50 symbol-light mt-1">
-                            <span className="symbol-label">
-                              <Text />
-                            </span>
-                          </div>
-                        </td>
-                        <td className="pl-0">
+                       
+                        <td>
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"id"}
+                            {"Ashutosh"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            UUID, primary key
-                            </span>
+                          
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"Not Null"}
+                            {"idkashutosh@gmail.com"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            value cannot be null
-                            </span>
+                         
 
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"generateUUID()"}
+                            {"+916207689508"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            generates new uuid
-                            </span>
-
+                         
                         </td>
 
 
@@ -180,41 +165,28 @@ const ModelData = () => {
                             <span></span>
                           </label>
                         </td>
-                        <td className="pr-0">
-                          <div className="symbol symbol-50 symbol-light mt-1">
-                            <span className="symbol-label">
-                              <Text />
-                            </span>
-                          </div>
-                        </td>
-                        <td className="pl-0">
+                       
+                        <td>
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"name"}
+                            {"Ashutosh"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            string
-                            </span>
+                          
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"Null"}
+                            {"idkashutosh@gmail.com"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            value can be null
-                            </span>
+                         
 
                         </td>
                         <td className="">
                           <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                            {"Not Available"}
+                            {"+916207689508"}
 
                           </span>
-                          <span className="text-muted font-weight-bold">
-                            no default value provided
-                            </span>
-
+                         
                         </td>
 
 
