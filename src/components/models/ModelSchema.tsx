@@ -1,8 +1,6 @@
 import React from 'react'
 import AddPage from '../../icons/AddPage'
-import Edit from '../../icons/Edit'
 import Text from '../../icons/Text'
-import Trash from '../../icons/Trash'
 import ModelSubheader from './ModelSubheader'
 
 const ModelSchema = () => {

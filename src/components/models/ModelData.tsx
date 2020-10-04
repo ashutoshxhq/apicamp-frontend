@@ -1,65 +1,60 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
 import ModelSubheader from './ModelSubheader'
 
 const ModelData = () => {
-    return (
-        <div className="content d-flex flex-column flex-column-fluid">
-        <div className="d-flex flex-column-fluid">
-            <div className="container-fluid">
-                <ModelSubheader/>
-                <div className="card card-custom">
-                    
-                    <div className="card-body">
-                        <div className="col-xl-12">
-
-                            <div className="d-flex justify-content-between align-items-center w-100">
-                                <div className="d-flex align-items-baseline flex-wrap mr-5">
-                                    <h3 className="d-flex align-items-center text-dark font-weight-bold my-1 mr-3">Records</h3>
-                                </div>
-                                <div className="d-flex align-items-center flex-wrap">
-                                    
-                                    <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                                        <AddPage />
-                                        <span className="d-none d-md-inline"> Add New Record</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="separator separator-dashed mt-5 mb-5"></div>
-
-                            <div className="table-responsive">
-                <table
-                  className="table table-head-custom table-vertical-center"
-                  id="kt_advance_table_widget_1"
-                >
-                  <thead>
-                    <tr className="text-left">
-                      <th className="pl-0" style={{ width: "20px" }}>
-                        <label className="checkbox checkbox-lg checkbox-inline">
-                          <input type="checkbox" value="1" />
-                          <span></span>
-                        </label>
+  return (
+    <div className="content d-flex flex-column flex-column-fluid">
+      <div className="d-flex flex-column-fluid">
+        <div className="container-fluid">
+          <ModelSubheader />
+          <div className="card card-custom">
+            <div className="card-header border-0 py-5">
+              <h3 className="card-title align-items-start flex-column">
+                <span className="card-label font-weight-bolder text-dark">Records</span>
+                <span className="text-muted mt-3 font-weight-bold font-size-sm">4 records found</span>
+              </h3>
+              <div className="card-toolbar">
+                <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                  <AddPage />
+                  <span className="d-none d-md-inline"> Add New Record</span>
+                </button>
+              </div>
+            </div>
+            <div className="card-body pt-0">
+              <div className="col-xl-12">
+                <div className="table-responsive">
+                  <table
+                    className="table table-head-custom table-vertical-center"
+                    id="kt_advance_table_widget_1"
+                  >
+                    <thead>
+                      <tr className="text-left">
+                        <th className="pl-0" style={{ width: "20px" }}>
+                          <label className="checkbox checkbox-lg checkbox-inline">
+                            <input type="checkbox" value="1" />
+                            <span></span>
+                          </label>
+                        </th>
+                        <th className="pr-0" style={{ width: "80px" }}>
+                          Field
                       </th>
-                      <th className="pr-0" style={{ width: "80px" }}>
-                      Field 
-                      </th>
-                      <th style={{ minWidth: "150px" }}></th>
-                      
+                        <th style={{ minWidth: "150px" }}></th>
 
-                      <th className="text-left" style={{ minWidth: "150px" }}>null value</th>
-                      <th style={{ minWidth: "150px" }}>default</th>
-                      <th
-                        className="pr-0 text-right"
-                        style={{ minWidth: "150px" }}
-                      >
-                        action
+
+                        <th className="text-left" style={{ minWidth: "150px" }}>null value</th>
+                        <th style={{ minWidth: "150px" }}>default</th>
+                        <th
+                          className="pr-0 text-right"
+                          style={{ minWidth: "150px" }}
+                        >
+                          action
                       </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <tr key="1">
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr key="1">
                         <td className="pl-0">
                           <label className="checkbox checkbox-lg checkbox-inline">
                             <input type="checkbox" value="1" />
@@ -69,43 +64,43 @@ const ModelData = () => {
                         <td className="pr-0">
                           <div className="symbol symbol-50 symbol-light mt-1">
                             <span className="symbol-label">
-                                <Text/>
+                              <Text />
                             </span>
                           </div>
                         </td>
                         <td className="pl-0">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"id"}
-                              
-                            </span>
-                            <span className="text-muted font-weight-bold">
-                              UUID, primary key
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"id"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            UUID, primary key
                             </span>
                         </td>
                         <td className="">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"Not Null"}
-                              
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"Not Null"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            value cannot be null
                             </span>
-                            <span className="text-muted font-weight-bold">
-                              value cannot be null
-                            </span>
-                         
+
                         </td>
                         <td className="">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"generateUUID()"}
-                              
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"generateUUID()"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            generates new uuid
                             </span>
-                            <span className="text-muted font-weight-bold">
-                              generates new uuid 
-                            </span>
-                         
+
                         </td>
-                       
-                        
+
+
                         <td className="pr-0 text-right">
-                         
+
                           <a
                             href="#//"
                             className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
@@ -188,43 +183,43 @@ const ModelData = () => {
                         <td className="pr-0">
                           <div className="symbol symbol-50 symbol-light mt-1">
                             <span className="symbol-label">
-                                <Text/>
+                              <Text />
                             </span>
                           </div>
                         </td>
                         <td className="pl-0">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"name"}
-                              
-                            </span>
-                            <span className="text-muted font-weight-bold">
-                              string
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"name"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            string
                             </span>
                         </td>
                         <td className="">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"Null"}
-                              
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"Null"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            value can be null
                             </span>
-                            <span className="text-muted font-weight-bold">
-                              value can be null
-                            </span>
-                         
+
                         </td>
                         <td className="">
-                        <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                              {"Not Available"}
-                              
+                          <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                            {"Not Available"}
+
+                          </span>
+                          <span className="text-muted font-weight-bold">
+                            no default value provided
                             </span>
-                            <span className="text-muted font-weight-bold">
-                              no default value provided 
-                            </span>
-                         
+
                         </td>
-                       
-                        
+
+
                         <td className="pr-0 text-right">
-                         
+
                           <a
                             href="#//"
                             className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
@@ -297,18 +292,18 @@ const ModelData = () => {
                           </a>
                         </td>
                       </tr>
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
+                </div>
+
               </div>
 
-                        </div>
-
-                    </div>
-                </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    )
+  )
 }
 
 export default ModelData
