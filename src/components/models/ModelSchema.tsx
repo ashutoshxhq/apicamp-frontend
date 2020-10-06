@@ -8,7 +8,7 @@ import AddField from './AddField'
 
 const ModelSchema = () => {
     const [, setFieldModelState] = useRecoilState(addFieldModelState)
-    const handleOpenAddFieldModel = () =>{
+    const handleOpenAddFieldModel = () => {
         setFieldModelState(true)
     }
     return (
@@ -27,7 +27,7 @@ const ModelSchema = () => {
                                     <AddPage />
                                     <span className="d-none d-md-inline"> Add New Field</span>
                                 </button>
-                                <AddField/>
+                                <AddField />
                             </div>
                         </div>
                         <div className="card-body pt-0">
@@ -309,6 +309,23 @@ const ModelSchema = () => {
                             </div>
 
                         </div>
+                    </div>
+
+                    <div className="card card-custom mt-6">
+                        <div className="card-header border-0 py-5">
+                            <h3 className="card-title align-items-start flex-column">
+                                <span className="card-label font-weight-bolder text-dark">Relationships</span>
+                                <span className="text-muted mt-3 font-weight-bold font-size-sm">1 relationships</span>
+                            </h3>
+                            <div className="card-toolbar">
+                                <button onClick={handleOpenAddFieldModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                    <AddPage />
+                                    <span className="d-none d-md-inline"> Create New Relationship</span>
+                                </button>
+                                <AddField />
+                            </div>
+                        </div>
+                        <div className="card-body pt-0"></div>
                     </div>
                 </div>
             </div>

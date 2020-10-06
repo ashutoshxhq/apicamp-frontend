@@ -8,6 +8,7 @@ import User from './icons/User'
 import Search from './icons/Search'
 import PenAndRuler from './icons/PenAndRuler'
 import { Link, NavLink } from 'react-router-dom'
+import AddPage from './icons/AddPage'
 
 const Aside = () => {
     return (
@@ -191,7 +192,7 @@ const Aside = () => {
                     <div className="w-100 p-5">
                         <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                        <Link to="/models/id/schema" className="btn btn-primary btn-lg btn-block"> <span> Create New Model</span> </Link>
+                        <Link to="/models/id/schema" className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </Link>
 
                     </div>
                 </div>
