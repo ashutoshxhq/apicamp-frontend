@@ -10,7 +10,7 @@ const AddField = () => {
     }
     return (
         <>
-            <div className={fieldModelState ? "modal fade show model-show" : "modal fade"} style={{ width: "50%", height: "fit-content", margin: "10% 25%" }}>
+            <div className={fieldModelState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
                         <div className="row">
@@ -50,7 +50,7 @@ const AddField = () => {
                                         placeholder="Default"
                                     />
                                 </div>
-                                <div className="form-group">
+                                <div className="form-group px-6">
                                     <label>Null Value</label>
                                     <div className="radio-inline">
                                         <label className="radio">

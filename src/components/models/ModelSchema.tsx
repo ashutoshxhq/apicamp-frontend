@@ -3,13 +3,19 @@ import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
 import ModelSubheader from './ModelSubheader'
-import { addFieldModelState } from '../../store/models'
+import { addFieldModelState, addRelationshipModelState } from '../../store/models'
 import AddField from './AddField'
+import AddRelationship from './AddRelationship'
 
 const ModelSchema = () => {
     const [, setFieldModelState] = useRecoilState(addFieldModelState)
+    const [, setRelationshipModelState] = useRecoilState(addRelationshipModelState)
+
     const handleOpenAddFieldModel = () => {
         setFieldModelState(true)
+    }
+    const handleOpenAddRelationshipModel = () => {
+        setRelationshipModelState(true)
     }
     return (
         <div className="content d-flex flex-column flex-column-fluid">
@@ -318,11 +324,12 @@ const ModelSchema = () => {
                                 <span className="text-muted mt-3 font-weight-bold font-size-sm">1 relationships</span>
                             </h3>
                             <div className="card-toolbar">
-                                <button onClick={handleOpenAddFieldModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                <button onClick={handleOpenAddRelationshipModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                                     <AddPage />
                                     <span className="d-none d-md-inline"> Create New Relationship</span>
                                 </button>
                                 <AddField />
+                                <AddRelationship/>
                             </div>
                         </div>
                         <div className="card-body pt-0"></div>
