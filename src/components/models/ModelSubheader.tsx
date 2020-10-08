@@ -5,7 +5,6 @@ import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
 import PenAndRuler from '../../icons/PenAndRuler'
 import { editModelModalState } from '../../store/models'
-import EditModel from './EditModel'
 
 const ModelSubheader = () => {
     const [, setEditModelModal] = useRecoilState(editModelModalState)

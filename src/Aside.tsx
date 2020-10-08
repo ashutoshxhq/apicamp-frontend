@@ -88,7 +88,7 @@ const Aside = () => {
 
 
 const ModelAside = () => {
-    const [createModelModal, setCreateModelModal] = useRecoilState(createModelModalState)
+    const [, setCreateModelModal] = useRecoilState(createModelModalState)
     return (
         <>
             <div className="tab-content">

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
-import { createModelModalState, editModelModalState } from '../../store/models'
+import { editModelModalState } from '../../store/models'
 
 const EditModel = () => {
     const [editModelModal, setEditModelModal] = useRecoilState(editModelModalState)
