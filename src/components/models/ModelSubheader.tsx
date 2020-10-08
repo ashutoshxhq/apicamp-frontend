@@ -16,11 +16,11 @@ const ModelSubheader = () => {
 
                     </div>
                     <div className="d-flex justify-content-between align-items-center" style={{height:55}}>
-                        <NavLink to="/models/id/data" activeClassName="model-mode-active" className="model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center" >
+                        <NavLink to="/models/users/data" activeClassName="model-mode-active" className="model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center" >
                             <HardDrive />
                             <span className="ml-3 font-weight-bolder mt-2" >Data Mode</span>
                         </NavLink>
-                        <NavLink to="/models/id/schema"  activeClassName="model-mode-active" className="model-mode  text-muted px-5 d-flex justify-content-center align-items-center" >
+                        <NavLink to="/models/users/schema"  activeClassName="model-mode-active" className="model-mode  text-muted px-5 d-flex justify-content-center align-items-center" >
                             <PenAndRuler/>
                             <span className="ml-3 font-weight-bolder mt-2">Schema Mode</span>
                         </NavLink>
