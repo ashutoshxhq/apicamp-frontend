@@ -12,6 +12,7 @@ import AddPage from './icons/AddPage'
 import { useRecoilState } from 'recoil'
 import { createModelModalState } from './store/models'
 import CreateModel from './components/models/CreateModel'
+import EditModel from './components/models/EditModel'
 
 const Aside = () => {
     const location = useLocation();
@@ -138,6 +139,8 @@ const ModelAside = () => {
 
                 <button onClick={()=>setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </button>
                 <CreateModel/>
+                <EditModel />
+
             </div>
         </>
     );
