@@ -12,7 +12,7 @@ import AddPage from './icons/AddPage'
 
 const Aside = () => {
     const location = useLocation();
-    console.log(location.pathname.split("/")[1])
+    
     return (
         <div className="aside aside-left d-flex aside-fixed" id="kt_aside">
 
