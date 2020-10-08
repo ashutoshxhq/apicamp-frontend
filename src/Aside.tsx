@@ -9,10 +9,13 @@ import Search from './icons/Search'
 import PenAndRuler from './icons/PenAndRuler'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import AddPage from './icons/AddPage'
+import { useRecoilState } from 'recoil'
+import { createModelModalState } from './store/models'
+import CreateModel from './components/models/CreateModel'
 
 const Aside = () => {
     const location = useLocation();
-    
+
     return (
         <div className="aside aside-left d-flex aside-fixed" id="kt_aside">
 
@@ -84,6 +87,7 @@ const Aside = () => {
 
 
 const ModelAside = () => {
+    const [createModelModal, setCreateModelModal] = useRecoilState(createModelModalState)
     return (
         <>
             <div className="tab-content">
@@ -132,8 +136,8 @@ const ModelAside = () => {
             <div className="w-100 p-5">
                 <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                <Link to="/models/id/schema" className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </Link>
-
+                <button onClick={()=>setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </button>
+                <CreateModel/>
             </div>
         </>
     );

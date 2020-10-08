@@ -1,16 +1,16 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
-import { addFieldModelState } from '../../store/models'
+import { addFieldModalState } from '../../store/models'
 
 const AddField = () => {
-    const [fieldModelState, setFieldModelState] = useRecoilState(addFieldModelState)
+    const [fieldModalState, setFieldModalState] = useRecoilState(addFieldModalState)
     const handleModelClose = () => {
-        setFieldModelState(false)
+        setFieldModalState(false)
     }
     return (
         <>
-            <div className={fieldModelState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
+            <div className={fieldModalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
                         <div className="row">
@@ -74,7 +74,7 @@ const AddField = () => {
                     </div>
                 </div>
             </div>
-            {fieldModelState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
+            {fieldModalState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
         </>
     )
 }

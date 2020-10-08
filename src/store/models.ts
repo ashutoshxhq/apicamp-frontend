@@ -1,16 +1,20 @@
 import { atom } from 'recoil';
 
-export const addFieldModelState = atom<any>({
+export const addFieldModalState = atom<any>({
     key: 'addFieldModelState',
     default: false,
 });
 
-export const addRelationshipModelState = atom<any>({
+export const addRelationshipModalState = atom<any>({
     key: 'addRelationshipModelState',
     default: false,
 });
 
-export const createModelState = atom<any>({
+export const createModelModalState = atom<any>({
     key: 'createModelState',
+    default: false,
+});
+export const editModelModalState = atom<any>({
+    key: 'editModelModalState',
     default: false,
 });

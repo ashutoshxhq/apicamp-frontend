@@ -2,16 +2,16 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
-import { addRelationshipModelState } from '../../store/models'
+import { addRelationshipModalState } from '../../store/models'
 
 const AddRelationship = () => {
-    const [relationshipModelState, setRelationshipModelState] = useRecoilState(addRelationshipModelState)
+    const [relationshipModalState, setRelationshipModalState] = useRecoilState(addRelationshipModalState)
     const handleModelClose = () => {
-        setRelationshipModelState(false)
+        setRelationshipModalState(false)
     }
     return (
         <>
-            <div className={relationshipModelState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
+            <div className={relationshipModalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
                         <div className="row">
@@ -102,7 +102,7 @@ const AddRelationship = () => {
                     </div>
                 </div>
             </div>
-            {relationshipModelState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
+            {relationshipModalState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
         </>
     )
 }

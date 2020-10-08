@@ -3,19 +3,19 @@ import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
 import ModelSubheader from './ModelSubheader'
-import { addFieldModelState, addRelationshipModelState } from '../../store/models'
+import { addFieldModalState, addRelationshipModalState } from '../../store/models'
 import AddField from './AddField'
 import AddRelationship from './AddRelationship'
 
 const ModelSchema = () => {
-    const [, setFieldModelState] = useRecoilState(addFieldModelState)
-    const [, setRelationshipModelState] = useRecoilState(addRelationshipModelState)
+    const [, setFieldModal] = useRecoilState(addFieldModalState)
+    const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
 
     const handleOpenAddFieldModel = () => {
-        setFieldModelState(true)
+        setFieldModal(true)
     }
     const handleOpenAddRelationshipModel = () => {
-        setRelationshipModelState(true)
+        setRelationshipModal(true)
     }
     return (
         <div className="content d-flex flex-column flex-column-fluid">
