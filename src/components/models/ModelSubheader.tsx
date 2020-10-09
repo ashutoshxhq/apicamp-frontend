@@ -24,7 +24,7 @@ const ModelSubheader = () => {
                             <span className="ml-3 font-weight-bolder mt-2" >Data Mode</span>
                         </NavLink>
                         <NavLink to="/models/users/schema" activeClassName="model-mode-active" className="model-mode  text-muted px-5 d-flex justify-content-center align-items-center" >
-                            <PenAndRuler />
+                            <PenAndRuler/>
                             <span className="ml-3 font-weight-bolder mt-2">Schema Mode</span>
                         </NavLink>
                     </div>

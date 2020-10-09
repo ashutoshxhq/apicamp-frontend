@@ -6,13 +6,13 @@ import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
 import User from './icons/User'
 import Search from './icons/Search'
-import PenAndRuler from './icons/PenAndRuler'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import AddPage from './icons/AddPage'
 import { useRecoilState } from 'recoil'
 import { createModelModalState } from './store/models'
 import CreateModel from './components/models/CreateModel'
 import EditModel from './components/models/EditModel'
+import PenAndRuler2X from './icons/PenAndRuler2x'
 
 const Aside = () => {
     const location = useLocation();
@@ -31,7 +31,7 @@ const Aside = () => {
                     <ul className="nav flex-column" role="tablist">
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Latest Projects">
                             <NavLink to="/models" className="nav-link btn btn-icon btn-clean btn-lg" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab" aria-selected="true">
-                                <PenAndRuler />
+                                <PenAndRuler2X />
                             </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Metronic Features">
