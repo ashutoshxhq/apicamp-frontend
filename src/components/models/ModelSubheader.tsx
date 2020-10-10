@@ -1,13 +1,17 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
 import PenAndRuler from '../../icons/PenAndRuler'
-import { editModelModalState } from '../../store/models'
+import { editModelModalState, modelModeState } from '../../store/models'
 
-const ModelSubheader = () => {
+const ModelSubheader = ({modelId}:any) => {
     const [, setEditModelModal] = useRecoilState(editModelModalState)
+    const [modelMode, setModelMode] = useRecoilState(modelModeState)
+    const handleModeChange = (mode:number) =>{
+        setModelMode(mode)
+    }
     return (
         <>
             <div className="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -19,14 +23,14 @@ const ModelSubheader = () => {
 
                     </div>
                     <div className="d-flex justify-content-between align-items-center" style={{ height: 55 }}>
-                        <NavLink to="/models/users" exact={true} activeClassName="model-mode-active" className="model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center" >
+                        <div  onClick={()=>handleModeChange(0)} className={modelMode===0?"model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center model-mode-active":"model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center"} >
                             <HardDrive />
                             <span className="ml-3 font-weight-bolder mt-2" >Data Mode</span>
-                        </NavLink>
-                        <NavLink to="/models/users/schema" activeClassName="model-mode-active" className="model-mode  text-muted px-5 d-flex justify-content-center align-items-center" >
+                        </div>
+                        <div onClick={()=>handleModeChange(1)} className={modelMode===1?"model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center model-mode-active":"model-mode text-muted mr-2 px-5 d-flex justify-content-center align-items-center"} >
                             <PenAndRuler/>
                             <span className="ml-3 font-weight-bolder mt-2">Schema Mode</span>
-                        </NavLink>
+                        </div>
                     </div>
                     <div className="d-flex align-items-center flex-wrap">
                         <button onClick={() => setEditModelModal(true)} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">

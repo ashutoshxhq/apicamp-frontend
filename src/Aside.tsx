@@ -13,6 +13,8 @@ import { createModelModalState } from './store/models'
 import CreateModel from './components/models/CreateModel'
 import EditModel from './components/models/EditModel'
 import PenAndRuler2X from './icons/PenAndRuler2x'
+import { useQuery } from '@apollo/client'
+import { GET_MODELS } from './graphql/models'
 
 const Aside = () => {
     const location = useLocation();
@@ -74,11 +76,11 @@ const Aside = () => {
 
             <div className="aside-secondary d-flex flex-row-fluid">
                 <div className="aside-workspace scroll scroll-push my-2 ps d-flex justify-content-between flex-column">
-                    {location.pathname.split("/")[1] === "models"?<ModelAside />:null}
-                    {location.pathname.split("/")[1] === "functions"?<FunctionsAside />:null}
-                    {location.pathname.split("/")[1] === "storage"?<StorageAside />:null}
-                    {location.pathname.split("/")[1] === "extensions"?<ExtensionsAside />:null}
-                    {location.pathname.split("/")[1] === "settings"?<SettingsAside />:null}
+                    {location.pathname.split("/")[1] === "models" ? <ModelAside /> : null}
+                    {location.pathname.split("/")[1] === "functions" ? <FunctionsAside /> : null}
+                    {location.pathname.split("/")[1] === "storage" ? <StorageAside /> : null}
+                    {location.pathname.split("/")[1] === "extensions" ? <ExtensionsAside /> : null}
+                    {location.pathname.split("/")[1] === "settings" ? <SettingsAside /> : null}
                 </div>
             </div>
 
@@ -89,6 +91,11 @@ const Aside = () => {
 
 const ModelAside = () => {
     const [, setCreateModelModal] = useRecoilState(createModelModalState)
+    const { loading, error, data } = useQuery(GET_MODELS);
+    if (error) return <p>Error :( {error.message}</p>;
+    if (loading) return <p>Loading...</p>;
+    if (data) console.log(data)
+
     return (
         <>
             <div className="tab-content">
@@ -116,7 +123,7 @@ const ModelAside = () => {
 
                     <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
-                        <Link to="/models/users">
+                        {data.models.map((model: any) => <Link to={"/models/"+model.id}>
                             <div className="list-item hoverable active p-2 p-lg-3 mb-2">
                                 <div className="d-flex align-items-center">
                                     <div className="symbol symbol-40 symbol-light mr-4">
@@ -125,20 +132,21 @@ const ModelAside = () => {
                                         </span>
                                     </div>
                                     <div className="d-flex flex-column flex-grow-1 mr-2">
-                                        <span className="text-dark-75 font-size-h6 mb-0">Users Table</span>
-                                        <span className="text-muted font-weight-bold">4 fields</span>
+                                        <span className="text-dark-75 font-size-h6 mb-0">{model.name}</span>
+                                        <span className="text-muted font-weight-bold">{model.fields.length} fields</span>
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </Link>)}
+
                     </div>
                 </div>
             </div>
             <div className="w-100 p-5">
                 <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                <button onClick={()=>setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </button>
-                <CreateModel/>
+                <button onClick={() => setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </button>
+                <CreateModel />
                 <EditModel />
 
             </div>

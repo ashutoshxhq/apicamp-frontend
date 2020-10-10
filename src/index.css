@@ -12,6 +12,7 @@
     border-radius: 0px;
     background-color:#fff; 
     height:54px;
+    cursor: pointer;
 }
 .model-mode-active .svg-icon svg g [fill]{
     fill: #272d35;

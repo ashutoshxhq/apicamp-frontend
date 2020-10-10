@@ -18,3 +18,8 @@ export const editModelModalState = atom<any>({
     key: 'editModelModalState',
     default: false,
 });
+
+export const modelModeState = atom<any>({
+    key: 'modelModeState',
+    default: 0,
+});
