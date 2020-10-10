@@ -116,7 +116,7 @@ const ModelAside = () => {
 
                     <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
-                        <Link to="/models/users/data">
+                        <Link to="/models/users">
                             <div className="list-item hoverable active p-2 p-lg-3 mb-2">
                                 <div className="d-flex align-items-center">
                                     <div className="symbol symbol-40 symbol-light mr-4">

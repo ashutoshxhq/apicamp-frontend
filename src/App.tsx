@@ -49,7 +49,7 @@ function App() {
           <Route path="/" exact><Redirect to="/models" /></Route>
           <PrivateRoute path="/models" exact component={Models} />
           <PrivateRoute path="/models/:modelId/schema" exact component={ModelSchema} />
-          <PrivateRoute path="/models/:modelId/data" exact component={ModelData} />
+          <PrivateRoute path="/models/:modelId" exact component={ModelData} />
           <PrivateRoute path="/functions" exact component={Functions} />
           <PrivateRoute path="/storage" exact component={MediaStorage} />
           <PrivateRoute path="/extensions" exact component={Extensions} />
