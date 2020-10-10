@@ -6,7 +6,7 @@ import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
 import User from './icons/User'
 import Search from './icons/Search'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
 import AddPage from './icons/AddPage'
 import { useRecoilState } from 'recoil'
 import { createModelModalState } from './store/models'
@@ -90,6 +90,7 @@ const Aside = () => {
 
 
 const ModelAside = () => {
+
     const [, setCreateModelModal] = useRecoilState(createModelModalState)
     const { loading, error, data } = useQuery(GET_MODELS);
     if (error) return <p>Error :( {error.message}</p>;
@@ -123,8 +124,8 @@ const ModelAside = () => {
 
                     <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
-                        {data.models.map((model: any) => <Link to={"/models/"+model.id}>
-                            <div className="list-item hoverable active p-2 p-lg-3 mb-2">
+                        {data.models.map((model: any) => <NavLink activeClassName="model-active" to={"/models/"+model.id}>
+                            <div className="list-item hoverable p-2 p-lg-3 mb-2">
                                 <div className="d-flex align-items-center">
                                     <div className="symbol symbol-40 symbol-light mr-4">
                                         <span className="symbol-label bg-hover-white">
@@ -133,11 +134,11 @@ const ModelAside = () => {
                                     </div>
                                     <div className="d-flex flex-column flex-grow-1 mr-2">
                                         <span className="text-dark-75 font-size-h6 mb-0">{model.name}</span>
-                                        <span className="text-muted font-weight-bold">{model.fields.length} fields</span>
+                                        <span className="text-muted font-weight-bold">{model.name} fields</span>
                                     </div>
                                 </div>
                             </div>
-                        </Link>)}
+                        </NavLink>)}
 
                     </div>
                 </div>

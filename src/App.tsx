@@ -16,6 +16,7 @@ import MediaStorage from './components/storage/MediaStorage';
 import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
 import ModelData from './components/models/ModelData';
+import ModelsOverview from './components/models/ModelsOverview';
 
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
 
@@ -47,7 +48,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact><Redirect to="/models" /></Route>
-          <PrivateRoute path="/models" exact component={Models} />
+          <PrivateRoute path="/models" exact component={ModelsOverview} />
           <PrivateRoute path="/models/:modelId" exact component={Models} />
           <PrivateRoute path="/functions" exact component={Functions} />
           <PrivateRoute path="/storage" exact component={MediaStorage} />
@@ -60,9 +61,10 @@ function App() {
   );
 }
 
-const PrivateRoute = ({ component: Component }: any) => (
+const PrivateRoute = ({ component: Component, ...rest  }: any) => (
   <Route
     exact
+    {...rest}
     render={(props) =>
       localStorage.getItem("loginStatus") === "true" ? (
         <div className="d-flex flex-row flex-column-fluid page">

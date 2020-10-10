@@ -21,3 +21,8 @@
     display: block;
     opacity: 1;
 }
+.model-active .list-item{
+    background-color: #f0f3f7;
+    border: solid 1px #e0e2e9;
+    transition: none!important;
+}

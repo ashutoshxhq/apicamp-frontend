@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom'
 
 const ModelSchema = () => {
     const { modelId } = useParams<any>();
-
+    console.log(modelId)
     const [, setFieldModal] = useRecoilState(addFieldModalState)
     const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
 
