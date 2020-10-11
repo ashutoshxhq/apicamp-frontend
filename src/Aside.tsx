@@ -15,6 +15,8 @@ import EditModel from './components/models/EditModel'
 import PenAndRuler2X from './icons/PenAndRuler2x'
 import { useQuery } from '@apollo/client'
 import { GET_MODELS } from './graphql/models'
+import Edit from './icons/Edit'
+import Right from './icons/Right'
 
 const Aside = () => {
     const location = useLocation();
@@ -124,17 +126,14 @@ const ModelAside = () => {
 
                     <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
-                        {data.models.map((model: any) => <NavLink activeClassName="model-active" to={"/models/"+model.id}>
+                        {data.models.map((model: any) => <NavLink activeClassName="model-active" to={"/models/" + model.id}>
                             <div className="list-item hoverable p-2 p-lg-3 mb-2">
                                 <div className="d-flex align-items-center">
-                                    <div className="symbol symbol-40 symbol-light mr-4">
-                                        <span className="symbol-label bg-hover-white">
-                                            <Bookmark />
-                                        </span>
-                                    </div>
-                                    <div className="d-flex flex-column flex-grow-1 mr-2">
+                                    <Bookmark />
+                                    <div className="d-flex justify-content-between flex-grow-1 ml-2 mr-2">
                                         <span className="text-dark-75 font-size-h6 mb-0">{model.name}</span>
-                                        <span className="text-muted font-weight-bold">{model.name} fields</span>
+                                        <Right />
+
                                     </div>
                                 </div>
                             </div>

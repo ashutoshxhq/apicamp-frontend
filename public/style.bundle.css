@@ -54489,7 +54489,6 @@ code {
   .list.list-hover .list-item:hover {
     -webkit-transition: all 0.15s ease;
     transition: all 0.15s ease;
-    background-color: #F3F6F9;
     cursor: pointer; }
     
   .list.list-hover .list-item.active {

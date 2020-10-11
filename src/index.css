@@ -22,7 +22,14 @@
     opacity: 1;
 }
 .model-active .list-item{
-    background-color: #f0f3f7;
-    border: solid 1px #e0e2e9;
+    background-color: #e4e6ef;
+    border-radius: 0.42rem!important;
     transition: none!important;
+}
+.model-active .list-item:hover{
+    background-color: #e4e6ef!important;
+}
+
+.model-active .svg-icon svg g [fill]{
+    fill: #272d35;
 }
