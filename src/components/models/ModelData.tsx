@@ -1,10 +1,7 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 import AddPage from '../../icons/AddPage'
-import ModelSubheader from './ModelSubheader'
 
 const ModelData = () => {
-  const { modelId } = useParams<any>();
 
   return (
     <>

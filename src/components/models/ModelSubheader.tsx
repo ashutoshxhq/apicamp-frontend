@@ -1,12 +1,11 @@
 import React from 'react'
-import { NavLink, useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
 import PenAndRuler from '../../icons/PenAndRuler'
 import { editModelModalState, modelModeState } from '../../store/models'
 
-const ModelSubheader = ({modelId}:any) => {
+const ModelSubheader = () => {
     const [, setEditModelModal] = useRecoilState(editModelModalState)
     const [modelMode, setModelMode] = useRecoilState(modelModeState)
     const handleModeChange = (mode:number) =>{

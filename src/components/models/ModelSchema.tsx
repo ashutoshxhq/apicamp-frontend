@@ -2,12 +2,11 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
-import ModelSubheader from './ModelSubheader'
 import { addFieldModalState, addRelationshipModalState } from '../../store/models'
 import AddField from './AddField'
 import AddRelationship from './AddRelationship'
-import { useMutation, useQuery } from '@apollo/client';
-import { GET_MODELS, GET_FIELDS } from '../../graphql/models';
+import { useQuery } from '@apollo/client';
+import { GET_MODELS } from '../../graphql/models';
 import { useParams } from 'react-router-dom'
 
 const ModelSchema = () => {

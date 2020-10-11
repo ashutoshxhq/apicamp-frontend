@@ -6,7 +6,7 @@ import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
 import User from './icons/User'
 import Search from './icons/Search'
-import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import AddPage from './icons/AddPage'
 import { useRecoilState } from 'recoil'
 import { createModelModalState } from './store/models'
@@ -15,7 +15,6 @@ import EditModel from './components/models/EditModel'
 import PenAndRuler2X from './icons/PenAndRuler2x'
 import { useQuery } from '@apollo/client'
 import { GET_MODELS } from './graphql/models'
-import Edit from './icons/Edit'
 import Right from './icons/Right'
 
 const Aside = () => {
@@ -126,7 +125,7 @@ const ModelAside = () => {
 
                     <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
-                        {data.models.map((model: any) => <NavLink activeClassName="model-active" to={"/models/" + model.id}>
+                        {data.models.map((model: any) => <NavLink key={model.id} activeClassName="model-active" to={"/models/" + model.id}>
                             <div className="list-item hoverable p-2 p-lg-3 mb-2">
                                 <div className="d-flex align-items-center">
                                     <Bookmark />

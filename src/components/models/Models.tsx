@@ -6,7 +6,7 @@ import ModelSchema from './ModelSchema'
 import ModelSubheader from './ModelSubheader'
 
 const Models = () => {
-    const [modelMode, setModelMode] = useRecoilState(modelModeState)
+    const [modelMode,] = useRecoilState(modelModeState)
 
     return (
         <div className="content d-flex flex-column flex-column-fluid">

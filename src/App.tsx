@@ -9,13 +9,11 @@ import {
   Switch,
 } from "react-router-dom";
 import Login from './components/auth/Login';
-import ModelSchema from './components/models/ModelSchema';
 import Functions from './components/functions/Functions';
 import Settings from './icons/Settings';
 import MediaStorage from './components/storage/MediaStorage';
 import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
-import ModelData from './components/models/ModelData';
 import ModelsOverview from './components/models/ModelsOverview';
 
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
