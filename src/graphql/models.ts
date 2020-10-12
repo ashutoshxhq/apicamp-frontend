@@ -28,6 +28,7 @@ export const GET_MODELS = gql`
             name
             type
             default
+            key
             null_value
         }
         service_id

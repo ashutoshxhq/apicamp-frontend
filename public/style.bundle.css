@@ -34675,6 +34675,7 @@ button {
 .aside .nav-link{
   height: calc(2em + 1.65rem + 2px)!important;
   width: calc(2em + 1.65rem + 2px)!important;
+  border-radius: 4rem;
 }
 .aside-footer .btn{
   border-radius: 3rem;

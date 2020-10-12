@@ -96,7 +96,6 @@ const ModelAside = () => {
     const { loading, error, data } = useQuery(GET_MODELS);
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
-    if (data) console.log(data)
 
     return (
         <>
