@@ -143,7 +143,7 @@ const ModelAside = () => {
             <div className="w-100 p-5">
                 <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                <button onClick={() => setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"> <AddPage /> <span> Create New Model</span> </button>
+                <button onClick={() => setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"><span> Create New Model</span> </button>
                 <CreateModel />
                 <EditModel />
 

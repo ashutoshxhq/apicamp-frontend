@@ -65,6 +65,16 @@ export const CREATE_MODEL = gql`
   }
 }`;
 
+export const UPDATE_MODEL = gql`
+  mutation updateModelMutation(
+    $name: String!
+    $id: uuid!
+  ) {
+    update_models(where: {id: {_eq: $id}}, _set: {name: $name}){
+      affected_rows
+  }
+}`;
+
 export const DELETE_MODEL = gql`
   mutation deleteModelMutation(
     $id: uuid!
