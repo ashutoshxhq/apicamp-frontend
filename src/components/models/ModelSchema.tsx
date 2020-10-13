@@ -100,7 +100,7 @@ const ModelSchema = () => {
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
-                                                {field.name}, {field.key}
+                                                type: {field.type}, key: {field.key}
                             </span>
                                         </td>
                                         <td className="">

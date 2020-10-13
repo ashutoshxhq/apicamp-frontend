@@ -1,12 +1,33 @@
-import React from 'react'
+import { useMutation } from '@apollo/client'
+import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
+import { CREATE_MODEL, GET_MODELS } from '../../graphql/models'
 import AddPage from '../../icons/AddPage'
 import { createModelModalState } from '../../store/models'
 
 const CreateModel = () => {
+    const [name, setName] = useState("")
     const [createModelModal, setCreateModelModal] = useRecoilState(createModelModalState)
+    const [createModelMutation] = useMutation(CREATE_MODEL);
+
     const handleModalClose = () => {
         setCreateModelModal(false)
+    }
+
+    const handleCreateModel = () =>{
+        createModelMutation({
+            variables: {
+                name,
+            },
+            refetchQueries: [{ query: GET_MODELS }],
+        }).then((res:any) => {
+            setCreateModelModal(false)
+            console.log(res)
+        })
+        .catch((error:any) => {
+            setCreateModelModal(false)
+            console.log(error);
+        });
     }
     return (
         <>
@@ -22,12 +43,14 @@ const CreateModel = () => {
                                     className="form-control form-control-solid form-control-lg"
                                     name="name"
                                     placeholder="Name"
+                                    value={name}
+                                    onChange={e => { setName(e.target.value) }}
                                 />
                             </div>
                             
                         </div>
                         <div className="d-flex justify-content-end w-100">
-                            <button onClick={()=>{}} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                            <button onClick={handleCreateModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                                 <AddPage />
                                 <span className="d-none d-md-inline"> Add Model</span>
                             </button>

@@ -33,3 +33,8 @@
 .model-active .svg-icon svg g [fill]{
     fill: #272d35;
 }
+
+.svg-icon.svg-icon-2-5x svg {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}

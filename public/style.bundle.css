@@ -34673,8 +34673,8 @@ button {
   color: #7E8299; 
 }
 .aside .nav-link{
-  height: calc(2em + 1.65rem + 2px)!important;
-  width: calc(2em + 1.65rem + 2px)!important;
+  height: calc(2.5em + 1.65rem + 2px)!important;
+  width: calc(2.5em + 1.65rem + 2px)!important;
   border-radius: 4rem;
 }
 .aside-footer .btn{

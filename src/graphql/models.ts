@@ -56,7 +56,7 @@ export const CREATE_FIELD = gql`
 export const CREATE_MODEL = gql`
   mutation createModelMutation(
     $name: String!
-    $service_id: uuid!
+    $service_id: uuid
   ) {
     insert_models_one(object: {name: $name service_id: $service_id}){
       id
