@@ -5,7 +5,7 @@ export const GET_FIELDS = gql`
     $id: uuid
     $model_id: uuid
   ) {
-    fields(where: {id: {_eq: $id} model_id: {_eq: $model_id} deleted: {_neq: true}}) {
+    fields(order_by: {updated_at: desc} where: {id: {_eq: $id} model_id: {_eq: $model_id} deleted: {_neq: true}}) {
         id
         name
         type
@@ -20,7 +20,7 @@ export const GET_MODELS = gql`
     $id: uuid
     $service_id: uuid
   ) {
-    models(where: {id: {_eq: $id} service_id: {_eq: $service_id} deleted: {_neq: true}}) {
+    models(order_by: {updated_at: desc} where: {id: {_eq: $id} service_id: {_eq: $service_id} deleted: {_neq: true}}) {
         id
         name
         fields{
@@ -40,13 +40,15 @@ export const CREATE_FIELD = gql`
     $name: String!
     $model_id: uuid!
     $default: String!
-    $null_value: Boolean!
+    $key: String!
+    $null_value: String!
     $type: String!
   ) {
-    insert_fields_one(object: {name: $name model_id: $model_id type: $type null_value:$null_value default: $default }){
+    insert_fields_one(object: {name: $name model_id: $model_id type: $type key: $key null_value:$null_value default: $default }){
       id
       name
       type
+      key
       null_value
       default
       model_id

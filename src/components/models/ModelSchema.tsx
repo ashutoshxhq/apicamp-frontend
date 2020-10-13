@@ -105,17 +105,17 @@ const ModelSchema = () => {
                                         </td>
                                         <td className="">
                                             <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                                            {field.null_value?"Null":"Not Null"}
+                                            {field.null_value === "NULL"?"Null":"Not Null"}
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
-                                            {field.null_value?"can be null":"cannot be null"}
+                                            {field.null_value === "NULL"?"value can be null":"value cannot be null"}
                             </span>
 
                                         </td>
                                         <td className="">
                                             <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                                            {field.default}
+                                            {field.default=== ""?"-":field.default}
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
