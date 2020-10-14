@@ -5,8 +5,8 @@ import Text from '../../icons/Text'
 import { addFieldModalState, addRelationshipModalState, editFieldModalState } from '../../store/models'
 import AddField from './AddField'
 import AddRelationship from './AddRelationship'
-import { useQuery } from '@apollo/client';
-import { GET_MODELS } from '../../graphql/models';
+import { useMutation, useQuery } from '@apollo/client';
+import { DELETE_FIELD, GET_MODELS } from '../../graphql/models';
 import { useParams } from 'react-router-dom'
 import EditField from './EditField'
 
@@ -15,6 +15,8 @@ const ModelSchema = () => {
     const [, setFieldModal] = useRecoilState(addFieldModalState)
     const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
     const [editfieldModal, setEditFieldModal] = useRecoilState(editFieldModalState)
+    const [deleteFieldMutation] = useMutation(DELETE_FIELD);
+
 
     const handleOpenAddFieldModel = () => {
         setFieldModal(true)
@@ -24,6 +26,21 @@ const ModelSchema = () => {
     }
     const handleOpenEditFieldModel = (id:any) => {
         setEditFieldModal({modalState:true,id})
+    }
+    const handleDeleteField = (id:any) => {
+        deleteFieldMutation({
+            variables: {
+                id
+            },
+            refetchQueries: [{ query: GET_MODELS, variables: {
+                id: modelId,
+            }, }],
+        }).then((res:any) => {
+            console.log(res)
+        })
+        .catch((error:any) => {
+            console.log(error);
+        });
     }
     const { loading, error, data } = useQuery(GET_MODELS, {
         variables: {
@@ -170,8 +187,8 @@ const ModelSchema = () => {
                                                     </svg>
                                                 </span>
                                             </button>
-                                            <a
-                                                href="#//"
+                                            <button
+                                                onClick={()=>handleDeleteField(field.id)}
                                                 className="btn btn-icon btn-light btn-hover-primary btn-sm"
                                             >
                                                 <span className="svg-icon svg-icon-md svg-icon-primary">
@@ -203,7 +220,7 @@ const ModelSchema = () => {
                                                         </g>
                                                     </svg>
                                                 </span>
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>)}
                                    

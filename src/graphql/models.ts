@@ -99,3 +99,12 @@ export const DELETE_MODEL = gql`
       affected_rows
   }
 }`;
+
+export const DELETE_FIELD = gql`
+  mutation deleteFieldMutation(
+    $id: uuid!
+  ) {
+    delete_fields(where: {id: {_eq: $id}}) {
+      affected_rows
+  }
+}`;
