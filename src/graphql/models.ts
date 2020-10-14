@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_FIELDS = gql`
   query getFields(
-    $id: uuid
+    $id: uuid!
     $model_id: uuid
   ) {
     fields(order_by: {updated_at: desc} where: {id: {_eq: $id} model_id: {_eq: $model_id} deleted: {_neq: true}}) {
@@ -73,6 +73,20 @@ export const UPDATE_MODEL = gql`
     $id: uuid!
   ) {
     update_models(where: {id: {_eq: $id}}, _set: {name: $name}){
+      affected_rows
+  }
+}`;
+
+export const UPDATE_FIELD = gql`
+  mutation updateFieldMutation(
+    $name: String!
+    $id: uuid!
+    $default: String!
+    $key: String!
+    $null_value: String!
+    $type: String!
+  ) {
+    update_fields(where: {id: {_eq: $id}}, _set: {name: $name type: $type key: $key null_value:$null_value default: $default }){
       affected_rows
   }
 }`;

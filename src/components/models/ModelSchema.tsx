@@ -2,23 +2,28 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
-import { addFieldModalState, addRelationshipModalState } from '../../store/models'
+import { addFieldModalState, addRelationshipModalState, editFieldModalState } from '../../store/models'
 import AddField from './AddField'
 import AddRelationship from './AddRelationship'
 import { useQuery } from '@apollo/client';
 import { GET_MODELS } from '../../graphql/models';
 import { useParams } from 'react-router-dom'
+import EditField from './EditField'
 
 const ModelSchema = () => {
     const { modelId } = useParams<any>();
     const [, setFieldModal] = useRecoilState(addFieldModalState)
     const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
+    const [editfieldModal, setEditFieldModal] = useRecoilState(editFieldModalState)
 
     const handleOpenAddFieldModel = () => {
         setFieldModal(true)
     }
     const handleOpenAddRelationshipModel = () => {
         setRelationshipModal(true)
+    }
+    const handleOpenEditFieldModel = (id:any) => {
+        setEditFieldModal({modalState:true,id})
     }
     const { loading, error, data } = useQuery(GET_MODELS, {
         variables: {
@@ -42,6 +47,8 @@ const ModelSchema = () => {
                             <span className="d-none d-md-inline"> Add New Field</span>
                         </button>
                         <AddField />
+                        {editfieldModal.modalState?<EditField />:null}
+
                     </div>
                 </div>
                 <div className="card-body pt-0">
@@ -127,8 +134,8 @@ const ModelSchema = () => {
 
                                         <td className="pr-0 text-right">
 
-                                            <a
-                                                href="#//"
+                                            <button
+                                               onClick={()=>handleOpenEditFieldModel(field.id)}
                                                 className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
                                             >
                                                 <span className="svg-icon svg-icon-md svg-icon-primary">
@@ -162,7 +169,7 @@ const ModelSchema = () => {
                                                         </g>
                                                     </svg>
                                                 </span>
-                                            </a>
+                                            </button>
                                             <a
                                                 href="#//"
                                                 className="btn btn-icon btn-light btn-hover-primary btn-sm"

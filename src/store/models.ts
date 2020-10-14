@@ -5,6 +5,14 @@ export const addFieldModalState = atom<any>({
     default: false,
 });
 
+export const editFieldModalState = atom<any>({
+    key: 'editFieldModelState',
+    default: {
+        modalState: false,
+        id:""
+    },
+});
+
 export const addRelationshipModalState = atom<any>({
     key: 'addRelationshipModelState',
     default: false,

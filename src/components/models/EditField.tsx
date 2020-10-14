@@ -1,27 +1,26 @@
-import { useMutation } from '@apollo/client'
-import React, { useState } from 'react'
+import { useMutation, useQuery } from '@apollo/client'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { CREATE_FIELD, GET_MODELS } from '../../graphql/models'
-import AddPage from '../../icons/AddPage'
-import { addFieldModalState } from '../../store/models'
+import { CREATE_FIELD, GET_FIELDS, GET_MODELS, UPDATE_FIELD } from '../../graphql/models'
+import { editFieldModalState } from '../../store/models'
 
-const AddField = () => {
+const EditField = () => {
     const { modelId } = useParams<any>();
 
-    const [addfieldModal, setAddFieldModal] = useRecoilState(addFieldModalState)
+    const [editfieldModal, setEditFieldModal] = useRecoilState(editFieldModalState)
     const [name, setName] = useState("")
     const [type, setType] = useState("string")
     const [defaultValue, setDefaultValue] = useState("")
     const [nullValue, setNullValue] = useState("NULL")
-    const [createFieldMutation] = useMutation(CREATE_FIELD);
-    const handleCreateField = () =>{
-        createFieldMutation({
+    const [updateFieldMutation] = useMutation(UPDATE_FIELD);
+    const handleUpdateField = () =>{
+        updateFieldMutation({
             variables: {
+                id: editfieldModal.id,
                 name,
                 type,
                 default: defaultValue,
-                model_id: modelId,
                 null_value: nullValue,
                 key: "none"
             },
@@ -29,21 +28,37 @@ const AddField = () => {
                 id: modelId,
             }, }],
         }).then((res:any) => {
-            setAddFieldModal(false)
+            setEditFieldModal(false)
             console.log(res)
         })
         .catch((error:any) => {
-            setAddFieldModal(false)
+            setEditFieldModal(false)
             console.log(error);
         });
     }
     const handleModelClose = () => {
-        setAddFieldModal(false)
+        setEditFieldModal(false)
     }
     console.log(type)
+    const { loading, error, data } = useQuery(GET_FIELDS, {
+        variables: {
+            id: editfieldModal.id,
+        },
+    });
+    useEffect(() => {
+        if (data) {
+            setName(data.fields[0].name)
+            setType(data.fields[0].type)
+            setDefaultValue(data.fields[0].default)
+            setNullValue(data.fields[0].null_value)
+        }
+    }, [setName,setNullValue,setDefaultValue,setType, data])
+    if (error) return <p>Error :( {error.message}</p>;
+    if (loading) return <p>Loading...</p>;
+    if (data) console.log(data)
     return (
         <>
-            <div className={addfieldModal ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
+            <div className={editfieldModal.modalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
                         <div className="row">
@@ -103,9 +118,8 @@ const AddField = () => {
                                 </div>
                             </div>
                             <div className="d-flex justify-content-end w-100">
-                                <button onClick={handleCreateField} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                                    <AddPage />
-                                    <span className="d-none d-md-inline"> Add Field</span>
+                                <button onClick={handleUpdateField} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                    <span className="d-none d-md-inline"> Update Field</span>
                                 </button>
                             </div>
                         </div>
@@ -113,9 +127,9 @@ const AddField = () => {
                     </div>
                 </div>
             </div>
-            {addfieldModal ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
+            {editfieldModal.modalState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
         </>
     )
 }
 
-export default AddField
+export default EditField
