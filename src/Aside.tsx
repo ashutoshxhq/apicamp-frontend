@@ -58,19 +58,7 @@ const Aside = () => {
                         </li>
                     </ul>
                     <div className="ps__rail-x"><div className="ps__thumb-x"></div></div><div className="ps__rail-y" ><div className="ps__thumb-y"></div></div></div>
-                <div className="aside-footer d-flex flex-column align-items-center flex-column-auto py-4 py-lg-10">
-
-                    <a href="#//" className="btn btn-icon btn-clean btn-lg w-40px h-40px mb-5" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
-                        <span className="symbol symbol-30 symbol-lg-40">
-                            <Search />
-                        </span>
-                    </a>
-                    <a href="#//" className="btn btn-icon btn-clean btn-lg w-40px h-40px" id="kt_quick_user_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="User Profile">
-                        <span className="symbol symbol-30 symbol-lg-40">
-                            <User />
-                        </span>
-                    </a>
-                </div>
+                
             </div>
 
 
