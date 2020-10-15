@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@apollo/client'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { CREATE_FIELD, GET_FIELDS, GET_MODELS, UPDATE_FIELD } from '../../graphql/models'
+import { GET_FIELDS, GET_MODELS, UPDATE_FIELD } from '../../graphql/models'
 import { editFieldModalState } from '../../store/models'
 
 const EditField = () => {
@@ -14,7 +14,7 @@ const EditField = () => {
     const [defaultValue, setDefaultValue] = useState("")
     const [nullValue, setNullValue] = useState("NULL")
     const [updateFieldMutation] = useMutation(UPDATE_FIELD);
-    const handleUpdateField = () =>{
+    const handleUpdateField = () => {
         updateFieldMutation({
             variables: {
                 id: editfieldModal.id,
@@ -24,20 +24,29 @@ const EditField = () => {
                 null_value: nullValue,
                 key: "none"
             },
-            refetchQueries: [{ query: GET_MODELS, variables: {
-                id: modelId,
-            }, }],
-        }).then((res:any) => {
-            setEditFieldModal({id:"",modalState:false})
+            refetchQueries: [{
+                query: GET_MODELS, variables: {
+                    id: modelId,
+                },
+            }],
+        }).then((res: any) => {
+            setName("")
+            setType("string")
+            setDefaultValue("")
+            setNullValue("NULL")
+            setEditFieldModal({ id: "", modalState: false })
             console.log(res)
         })
-        .catch((error:any) => {
-            setEditFieldModal({id:"",modalState:false})
-            console.log(error);
-        });
+            .catch((error: any) => {
+                console.log(error);
+            });
     }
     const handleModelClose = () => {
-        setEditFieldModal({id:"",modalState:false})
+        setName("")
+        setType("string")
+        setDefaultValue("")
+        setNullValue("NULL")
+        setEditFieldModal({ id: "", modalState: false })
     }
     console.log(type)
     const { loading, error, data } = useQuery(GET_FIELDS, {
@@ -52,7 +61,7 @@ const EditField = () => {
             setDefaultValue(data.fields[0].default)
             setNullValue(data.fields[0].null_value)
         }
-    }, [setName,setNullValue,setDefaultValue,setType, data])
+    }, [setName, setNullValue, setDefaultValue, setType, data])
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
     if (data) console.log(data)
@@ -71,7 +80,7 @@ const EditField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={name}
-                                        onChange={e =>{setName(e.target.value)}}
+                                        onChange={e => { setName(e.target.value) }}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -82,7 +91,7 @@ const EditField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={type}
-                                        onChange={e =>{setType(e.target.value)}}
+                                        onChange={e => { setType(e.target.value) }}
                                     >
                                         <option value="string">String</option>
                                         <option value="number">Number</option>
@@ -101,17 +110,17 @@ const EditField = () => {
                                         name="name"
                                         placeholder="Default"
                                         value={defaultValue}
-                                        onChange={e =>{setDefaultValue(e.target.value)}}
+                                        onChange={e => { setDefaultValue(e.target.value) }}
                                     />
                                 </div>
                                 <div className="form-group px-6">
                                     <label>Null Value</label>
                                     <div className="radio-inline">
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NULL"} onChange={e =>{setNullValue(e.target.value)}} value="NULL" />
+                                            <input type="radio" checked={nullValue === "NULL"} onChange={e => { setNullValue(e.target.value) }} value="NULL" />
                                             <span></span>Can Be Null</label>
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e =>{setNullValue(e.target.value)}} value="NOT_NULL" />
+                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e => { setNullValue(e.target.value) }} value="NOT_NULL" />
                                             <span></span>Cannot Be Null</label>
 
                                     </div>

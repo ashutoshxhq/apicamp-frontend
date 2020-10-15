@@ -15,6 +15,7 @@ const EditModel = () => {
 
     const [editModelModal, setEditModelModal] = useRecoilState(editModelModalState)
     const handleModalClose = () => {
+        setName("")
         setEditModelModal(false)
     }
     const handleEditModel = () => {
@@ -25,11 +26,10 @@ const EditModel = () => {
             },
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
+            setName("")
             setEditModelModal(false)
             console.log(res)
-        })
-            .catch((error: any) => {
-                setEditModelModal(false)
+        }).catch((error: any) => {
                 console.log(error);
             });
     }
@@ -41,7 +41,7 @@ const EditModel = () => {
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
             setEditModelModal(false)
-            console.log("DELETED:",res)
+            console.log("DELETED:", res)
             history.replace("/models");
         })
             .catch((error: any) => {
@@ -56,13 +56,13 @@ const EditModel = () => {
     });
     useEffect(() => {
         if (data) {
-            if(data.models.length > 0) setName(data.models[0].name)
+            if (data.models.length > 0) setName(data.models[0].name)
         }
     }, [setName, data])
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
     if (data) console.log(data)
-    if(!editModelModal) return(null)
+    if (!editModelModal) return (null)
     return (
         <>
             <div className={editModelModal ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
@@ -95,7 +95,7 @@ const EditModel = () => {
                         <div className="separator separator-dashed mt-5 mb-5"></div>
                         <div className="row">
                             <div className="col-xl-12">
-                               
+
                             </div>
                         </div>
                     </div>

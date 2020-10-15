@@ -15,7 +15,7 @@ const AddField = () => {
     const [defaultValue, setDefaultValue] = useState("")
     const [nullValue, setNullValue] = useState("NULL")
     const [createFieldMutation] = useMutation(CREATE_FIELD);
-    const handleCreateField = () =>{
+    const handleCreateField = () => {
         createFieldMutation({
             variables: {
                 name,
@@ -25,19 +25,28 @@ const AddField = () => {
                 null_value: nullValue,
                 key: "none"
             },
-            refetchQueries: [{ query: GET_MODELS, variables: {
-                id: modelId,
-            }, }],
-        }).then((res:any) => {
+            refetchQueries: [{
+                query: GET_MODELS, variables: {
+                    id: modelId,
+                },
+            }],
+        }).then((res: any) => {
             setAddFieldModal(false)
+            setName("")
+            setType("string")
+            setDefaultValue("")
+            setNullValue("NULL")
             console.log(res)
         })
-        .catch((error:any) => {
-            setAddFieldModal(false)
-            console.log(error);
-        });
+            .catch((error: any) => {
+                console.log(error);
+            });
     }
     const handleModelClose = () => {
+        setName("")
+        setType("string")
+        setDefaultValue("")
+        setNullValue("NULL")
         setAddFieldModal(false)
     }
     console.log(type)
@@ -56,7 +65,7 @@ const AddField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={name}
-                                        onChange={e =>{setName(e.target.value)}}
+                                        onChange={e => { setName(e.target.value) }}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -67,7 +76,7 @@ const AddField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={type}
-                                        onChange={e =>{setType(e.target.value)}}
+                                        onChange={e => { setType(e.target.value) }}
                                     >
                                         <option value="string">String</option>
                                         <option value="number">Number</option>
@@ -86,17 +95,17 @@ const AddField = () => {
                                         name="name"
                                         placeholder="Default"
                                         value={defaultValue}
-                                        onChange={e =>{setDefaultValue(e.target.value)}}
+                                        onChange={e => { setDefaultValue(e.target.value) }}
                                     />
                                 </div>
                                 <div className="form-group px-6">
                                     <label>Null Value</label>
                                     <div className="radio-inline">
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NULL"} onChange={e =>{setNullValue(e.target.value)}} value="NULL" />
+                                            <input type="radio" checked={nullValue === "NULL"} onChange={e => { setNullValue(e.target.value) }} value="NULL" />
                                             <span></span>Can Be Null</label>
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e =>{setNullValue(e.target.value)}} value="NOT_NULL" />
+                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e => { setNullValue(e.target.value) }} value="NOT_NULL" />
                                             <span></span>Cannot Be Null</label>
 
                                     </div>
