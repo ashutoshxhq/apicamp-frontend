@@ -28,16 +28,16 @@ const EditField = () => {
                 id: modelId,
             }, }],
         }).then((res:any) => {
-            setEditFieldModal(false)
+            setEditFieldModal({id:"",modalState:false})
             console.log(res)
         })
         .catch((error:any) => {
-            setEditFieldModal(false)
+            setEditFieldModal({id:"",modalState:false})
             console.log(error);
         });
     }
     const handleModelClose = () => {
-        setEditFieldModal(false)
+        setEditFieldModal({id:"",modalState:false})
     }
     console.log(type)
     const { loading, error, data } = useQuery(GET_FIELDS, {
