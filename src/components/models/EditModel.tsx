@@ -15,7 +15,6 @@ const EditModel = () => {
 
     const [editModelModal, setEditModelModal] = useRecoilState(editModelModalState)
     const handleModalClose = () => {
-        setName("")
         setEditModelModal(false)
     }
     const handleEditModel = () => {
@@ -26,7 +25,6 @@ const EditModel = () => {
             },
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
-            setName("")
             setEditModelModal(false)
             console.log(res)
         }).catch((error: any) => {
