@@ -13,6 +13,7 @@ import PenAndRuler2X from './icons/PenAndRuler2x'
 import { useQuery } from '@apollo/client'
 import { GET_MODELS } from './graphql/models'
 import Right from './icons/Right'
+import Plus from './icons/Plus'
 
 const Aside = () => {
     const location = useLocation();
@@ -86,28 +87,13 @@ const ModelAside = () => {
         <>
             <div className="tab-content">
                 <div className="tab-pane p-3 px-lg-7 py-lg-5 fade active show" id="kt_aside_tab_1">
-                    <form className="p-2 p-lg-3">
-                        <div className="d-flex">
-                            <div className="input-icon h-40px w-100">
-                                <input type="text" className="form-control form-control-lg form-control-solid h-40px" placeholder="Search..." id="generalSearch" />
-                                <span>
-                                    <span className="svg-icon svg-icon-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                                                <rect x="0" y="0" width="24" height="24"></rect>
-                                                <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fillRule="nonzero" opacity="0.3"></path>
-                                                <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fillRule="nonzero"></path>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </span>
-                            </div>
+                   <div className="d-flex justify-content-between align-items-center">
+                        <h3 className="p-2 p-lg-3 my-1 my-lg-3">Models</h3>
+                        <button onClick={() => setCreateModelModal(true)} className="btn btn-circle btn-secondary btn-icon btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"><Plus/> </button>
 
-                        </div>
-                    </form>
+                   </div>
 
-                    <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
-                    <div className="separator separator-dashed mt-5 mb-5"></div>
+                    <div className="separator separator-dashed mt-2 mb-5"></div>
 
                     <div className="list list-hover">
                         {data.models.map((model: any) => <NavLink key={model.id} activeClassName="model-active" to={"/models/" + model.id}>
