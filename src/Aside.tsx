@@ -4,8 +4,6 @@ import Cloud from './icons/Cloud'
 import Extensions from './icons/Extensions'
 import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
-import User from './icons/User'
-import Search from './icons/Search'
 import { NavLink, useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { createModelModalState } from './store/models'
@@ -108,7 +106,7 @@ const ModelAside = () => {
                         </div>
                     </form>
 
-                    <h3 className="p-2 p-lg-3 my-1 my-lg-3">Model List</h3>
+                    <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="separator separator-dashed mt-5 mb-5"></div>
 
                     <div className="list list-hover">
