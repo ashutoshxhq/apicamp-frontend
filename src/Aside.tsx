@@ -107,9 +107,10 @@ const ModelAside = () => {
 
                         </div>
                     </form>
+
+                    <h3 className="p-2 p-lg-3 my-1 my-lg-3">Model List</h3>
                     <div className="separator separator-dashed mt-5 mb-5"></div>
 
-                    <h3 className="p-2 p-lg-3 my-1 my-lg-3">Your Models</h3>
                     <div className="list list-hover">
                         {data.models.map((model: any) => <NavLink key={model.id} activeClassName="model-active" to={"/models/" + model.id}>
                             <div className="list-item hoverable p-2 p-lg-3 mb-2">
@@ -125,6 +126,8 @@ const ModelAside = () => {
                         </NavLink>)}
 
                     </div>
+                    <div className="separator separator-dashed mt-5 mb-5"></div>
+                    
                 </div>
             </div>
             <div className="w-100 p-5">
