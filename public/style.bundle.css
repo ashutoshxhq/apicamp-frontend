@@ -34675,7 +34675,6 @@ button {
 .aside .nav-link{
   height: calc(2.5em + 1.65rem + 2px)!important;
   width: calc(2.5em + 1.65rem + 2px)!important;
-  border-radius: 4rem;
 }
 .aside-footer .btn{
   border-radius: 3rem;
@@ -60015,7 +60014,7 @@ body {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease; }
     .aside-secondary-enabled.aside-fixed .wrapper {
-      padding-left: 400px; }
+      padding-left: 380px; }
     .aside-secondary-disabled.aside-fixed .wrapper {
       padding-left: 100px; }
     .aside-fixed.aside-minimize .wrapper {
@@ -60091,7 +60090,7 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease; }
   .aside-secondary-enabled .aside {
-    width: 400px; }
+    width: 380px; }
   .aside-secondary-disabled .aside {
     width: 100px; }
   .aside .aside-primary {
@@ -60103,7 +60102,7 @@ body {
   .aside .aside-secondary {
     overflow: hidden; }
     .aside .aside-secondary .aside-workspace {
-      width: 300px;
+      width: 280px;
       -ms-flex-negative: 0;
       flex-shrink: 0; }
     .aside .aside-secondary .aside-menu.ps > .ps__rail-y {
@@ -61471,7 +61470,7 @@ body {
   .aside-fixed.subheader-fixed .subheader {
     left: 100px; }
   .aside-fixed.aside-secondary-enabled.subheader-fixed .subheader {
-    left: 400px; }
+    left: 380px; }
   .aside-minimize.aside-fixed.subheader-fixed .subheader {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
