@@ -15,6 +15,7 @@ import MediaStorage from './components/storage/MediaStorage';
 import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
 import ModelsOverview from './components/models/ModelsOverview';
+import Chat from './icons/Chat';
 
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
 
@@ -69,6 +70,7 @@ const PrivateRoute = ({ component: Component, ...rest  }: any) => (
           <Aside />
           <div className="d-flex flex-column flex-row-fluid wrapper">
             <Component {...props} />
+            <button className="btn-fab"><Chat/></button>
           </div>
         </div>
       ) : (

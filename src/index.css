@@ -1,36 +1,36 @@
-.model-mode-active{
-    background-color:#f3f6f9!important; 
-    border-bottom:solid 3px #272d35 !important;
+.model-mode-active {
+    background-color: #f3f6f9 !important;
+    border-bottom: solid 3px #272d35 !important;
     border-left: solid 1px #e0e2e9;
     border-right: solid 1px #e0e2e9;
-    color: #181C32!important;
+    color: #181c32 !important;
 }
 
-.model-mode{
-    border-top:none;
-    border-bottom:none;
+.model-mode {
+    border-top: none;
+    border-bottom: none;
     border-radius: 0px;
-    background-color:#fff; 
-    height:54px;
+    background-color: #fff;
+    height: 54px;
     cursor: pointer;
 }
-.model-mode-active .svg-icon svg g [fill]{
+.model-mode-active .svg-icon svg g [fill] {
     fill: #272d35;
 }
- .model-show{
+.model-show {
     display: block;
     opacity: 1;
 }
-.model-active .list-item{
+.model-active .list-item {
     background-color: #e4e6ef;
-    border-radius: 0.42rem!important;
-    transition: none!important;
+    border-radius: 0.42rem !important;
+    transition: none !important;
 }
-.model-active .list-item:hover{
-    background-color: #e4e6ef!important;
+.model-active .list-item:hover {
+    background-color: #e4e6ef !important;
 }
 
-.model-active .svg-icon svg g [fill]{
+.model-active .svg-icon svg g [fill] {
     fill: #272d35;
 }
 
@@ -39,15 +39,38 @@
     width: 2.5rem !important;
 }
 
-.models-aside-background{
+.models-aside-background {
     background-image: url("/build.svg");
     background-repeat: no-repeat;
     background-position-y: calc(100% - 88px);
     background-size: contain;
 }
-.bg-white-gradient{
-    background-image: linear-gradient(to top, rgba(255,0,0,0) 0%, rgb(255 255 255));
+.bg-white-gradient {
+    background-image: linear-gradient(to top, rgba(255, 0, 0, 0) 0%, rgb(255 255 255));
 }
 ::-webkit-scrollbar {
     width: 0px;
-  }
+}
+
+.btn-fab {
+    background-color: #272d35;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: #272d35;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 36px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: 0.3s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    align-self: flex-end;
+    margin: 20px;
+}
+.btn-fab:focus {
+    transform: scale(1.1);
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
