@@ -58,7 +58,7 @@ const EditModel = () => {
         }
     }, [setName, data])
     if (error) return <p>Error :( {error.message}</p>;
-    if (loading) return <p>Loading...</p>;
+    if (loading) return null;
     if (data) console.log(data)
     if (!editModelModal) return (null)
     return (

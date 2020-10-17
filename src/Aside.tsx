@@ -61,8 +61,8 @@ const Aside = () => {
             </div>
 
 
-            <div className="aside-secondary d-flex flex-row-fluid">
-                <div className="aside-workspace scroll scroll-push my-2 ps d-flex justify-content-between flex-column">
+            <div className="aside-secondary d-flex flex-row-fluid models-aside-background">
+                <div className="aside-workspace  bg-white-gradient scroll scroll-push my-2 ps d-flex justify-content-between flex-column">
                     {location.pathname.split("/")[1] === "models" ? <ModelAside /> : null}
                     {location.pathname.split("/")[1] === "functions" ? <FunctionsAside /> : null}
                     {location.pathname.split("/")[1] === "storage" ? <StorageAside /> : null}
@@ -85,8 +85,8 @@ const ModelAside = () => {
 
     return (
         <>
-            <div className="tab-content">
-                <div className="tab-pane p-3 px-lg-7 py-lg-5 fade active show" id="kt_aside_tab_1">
+            <div className="tab-content" style={{overflowY:"scroll"}}>
+                <div className="tab-pane  pb-0 p-3 px-lg-7 py-lg-5 fade active show" id="kt_aside_tab_1">
                    <div className="d-flex justify-content-between align-items-center">
                         <h3 className="p-2 p-lg-3 my-1 my-lg-3">Models</h3>
                         <button onClick={() => setCreateModelModal(true)} className="btn btn-circle btn-secondary btn-icon btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"><Plus/> </button>
@@ -110,12 +110,11 @@ const ModelAside = () => {
                         </NavLink>)}
 
                     </div>
-                    <div className="separator separator-dashed mt-5 mb-5"></div>
                     
                 </div>
             </div>
-            <div className="w-100 p-5">
-                <div className="separator separator-dashed mt-5 mb-5"></div>
+            <div className="w-100 pb-5 px-5">
+                <div className="separator separator-dashed mt-0 mb-5"></div>
 
                 <button onClick={() => setCreateModelModal(true)} className="btn btn-primary btn-lg btn-block"><span> Create New Model</span> </button>
                 <CreateModel />
