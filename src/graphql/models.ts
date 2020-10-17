@@ -35,6 +35,36 @@ export const GET_MODELS = gql`
     }
 }`;
 
+export const GET_RELATIONSHIPS = gql`
+  query getRelationships(
+    $id: uuid
+    $model_id: uuid
+  ) {
+    relationships(order_by: {updated_at: desc} where: {id: {_eq: $id} model_id: {_eq: $model_id} deleted: {_neq: true}}) {
+      id
+      type
+      name
+      updated_at
+      created_at
+      relationshipModel {
+        id
+        name
+      }
+      relationshipModelField {
+        id
+        name
+      }
+      model {
+        id
+        name
+      }
+      modelField {
+        id
+        name
+      }
+    }
+}`;
+
 export const CREATE_FIELD = gql`
   mutation createFieldMutation(
     $name: String!

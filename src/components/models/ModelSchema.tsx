@@ -2,9 +2,8 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
-import { addFieldModalState, addRelationshipModalState, editFieldModalState } from '../../store/models'
+import { addFieldModalState, editFieldModalState } from '../../store/models'
 import AddField from './AddField'
-import AddRelationship from './AddRelationship'
 import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_FIELD, GET_MODELS } from '../../graphql/models';
 import { useParams } from 'react-router-dom'
@@ -13,7 +12,6 @@ import EditField from './EditField'
 const ModelSchema = () => {
     const { modelId } = useParams<any>();
     const [, setFieldModal] = useRecoilState(addFieldModalState)
-    const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
     const [editfieldModal, setEditFieldModal] = useRecoilState(editFieldModalState)
     const [deleteFieldMutation] = useMutation(DELETE_FIELD);
 
@@ -21,9 +19,7 @@ const ModelSchema = () => {
     const handleOpenAddFieldModel = () => {
         setFieldModal(true)
     }
-    const handleOpenAddRelationshipModel = () => {
-        setRelationshipModal(true)
-    }
+    
     const handleOpenEditFieldModel = (id:any) => {
         setEditFieldModal({modalState:true,id})
     }
@@ -233,23 +229,7 @@ const ModelSchema = () => {
                 </div>
             </div>
 
-            <div className="card card-custom mt-6">
-                <div className="card-header border-0 py-5">
-                    <h3 className="card-title align-items-start flex-column">
-                        <span className="card-label font-weight-bolder text-dark">Relationships</span>
-                        <span className="text-muted mt-3 font-weight-bold font-size-sm">1 relationships</span>
-                    </h3>
-                    <div className="card-toolbar">
-                        <button onClick={handleOpenAddRelationshipModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                            <AddPage />
-                            <span className="d-none d-md-inline"> Create New Relationship</span>
-                        </button>
-                        <AddField />
-                        <AddRelationship />
-                    </div>
-                </div>
-                <div className="card-body pt-0"></div>
-            </div>
+            
         </>
     )
 }
