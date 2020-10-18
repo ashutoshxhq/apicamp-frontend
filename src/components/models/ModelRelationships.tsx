@@ -1,16 +1,17 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import AddPage from '../../icons/AddPage'
-import { addRelationshipModalState } from '../../store/models'
-import AddField from './AddField'
+import { addRelationshipModalState, editRelationshipModalState } from '../../store/models'
 import AddRelationship from './AddRelationship'
 import Text from '../../icons/Text'
 import { useMutation, useQuery } from '@apollo/client'
 import { DELETE_RELATIONSHIP, GET_RELATIONSHIPS } from '../../graphql/models'
 import { useParams } from 'react-router-dom'
+import EditRelationship from './EditRelationship'
 
 const ModelRelationships = () => {
     const { modelId } = useParams<any>();
+    const [editRelationshipModal, setEditRelationshipModal] = useRecoilState(editRelationshipModalState)
 
     const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
     const [deleteRelationshipMutation] = useMutation(DELETE_RELATIONSHIP);
@@ -18,8 +19,9 @@ const ModelRelationships = () => {
     const handleOpenAddRelationshipModel = () => {
         setRelationshipModal(true)
     }
-    const handleOpenEditRelationshipModel = (id:any) =>{
-
+    const handleOpenEditRelationshipModel = (relationship:any) =>{
+        console.log(relationship)
+        setEditRelationshipModal({modalState:true,id:relationship.id,data: relationship})
     }
     const handleDeleteRelationship = (id:any) =>{
         deleteRelationshipMutation({
@@ -43,6 +45,7 @@ const ModelRelationships = () => {
     });
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
+    console.log(editRelationshipModal)
     return (
         <div className="card card-custom mt-6">
             <div className="card-header border-0 py-5">
@@ -55,8 +58,8 @@ const ModelRelationships = () => {
                         <AddPage />
                         <span className="d-none d-md-inline"> Create New Relationship</span>
                     </button>
-                    <AddField />
                     <AddRelationship />
+                    {editRelationshipModal.modalState?<EditRelationship/>:null}
                 </div>
             </div>
             <div className="card-body pt-0">
@@ -143,7 +146,7 @@ const ModelRelationships = () => {
                                     <td className="pr-0 text-right">
 
                                         <button
-                                            onClick={() => handleOpenEditRelationshipModel(relationship.id)}
+                                            onClick={() => handleOpenEditRelationshipModel(relationship)}
                                             className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
                                         >
                                             <span className="svg-icon svg-icon-md svg-icon-primary">

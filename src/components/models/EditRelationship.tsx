@@ -2,27 +2,27 @@ import { useMutation, useQuery } from '@apollo/client'
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { CREATE_RELATIONSHIP, GET_MODELS, GET_RELATIONSHIPS } from '../../graphql/models'
-import AddPage from '../../icons/AddPage'
-import { addRelationshipModalState } from '../../store/models'
+import { GET_MODELS, GET_RELATIONSHIPS, UPDATE_RELATIONSHIP } from '../../graphql/models'
+import { editRelationshipModalState } from '../../store/models'
 
-const AddRelationship = () => {
+const EditRelationship = () => {
     const { modelId } = useParams<any>();
 
-    const [relationshipModalState, setRelationshipModalState] = useRecoilState(addRelationshipModalState)
-    const [name, setName] = useState("")
-    const [type, setType] = useState("object")
-    const [createRelationshipMutation] = useMutation(CREATE_RELATIONSHIP);
-    const [relationshipModelId, setRelationshipModelId] = useState("")
-    const [relationshipFieldId, setRelationshipFieldId] = useState("")
-    const [currentModelFieldId, setCurrentModelFieldId] = useState("")
+    const [editRelationshipModal, setEditRelationshipModal] = useRecoilState(editRelationshipModalState)
+    const [name, setName] = useState(editRelationshipModal.data.name)
+    const [type, setType] = useState(editRelationshipModal.data.type)
+    const [updateRelationshipMutation] = useMutation(UPDATE_RELATIONSHIP);
+    const [relationshipModelId, setRelationshipModelId] = useState(editRelationshipModal.data.relationshipModel.id)
+    const [relationshipFieldId, setRelationshipFieldId] = useState(editRelationshipModal.data.relationshipModelField.id)
+    const [currentModelFieldId, setCurrentModelFieldId] = useState(editRelationshipModal.data.modelField.id)
 
     const handleModelClose = () => {
-        setRelationshipModalState(false)
+        setEditRelationshipModal({modalState:false,id:"", data:{}})
     }
-    const handleAddRelationship = () => {
-        createRelationshipMutation({
+    const handleEditRelationship = () => {
+        updateRelationshipMutation({
             variables: {
+                id:editRelationshipModal.id,
                 name,
                 type,
                 model_id: modelId,
@@ -41,19 +41,18 @@ const AddRelationship = () => {
             setCurrentModelFieldId("")
             setRelationshipFieldId("")
             setCurrentModelFieldId("")
-            setRelationshipModalState(false)
-        })
-            .catch((error: any) => {
-                console.log(error);
-            });
+            setEditRelationshipModal({modalState:false,id:"", data:{}})
+        }).catch((error: any) => {
+            console.log(error);
+        });
     }
+ console.log(editRelationshipModal)
     const { loading, error, data } = useQuery(GET_MODELS);
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
-
     return (
         <>
-            <div className={relationshipModalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
+            <div className={editRelationshipModal.modalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
                         <div className="row">
@@ -77,7 +76,7 @@ const AddRelationship = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={type}
-                                        onChange={e =>setType(e.target.value)}
+                                        onChange={e => setType(e.target.value)}
                                     >
                                         <option value="array">Array</option>
                                         <option value="object">Object</option>
@@ -93,16 +92,16 @@ const AddRelationship = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={relationshipModelId}
-                                        onChange={(e) =>{
+                                        onChange={(e) => { 
                                             setRelationshipModelId(e.target.value)
-                                            data.models.map((model:any) => {
-                                                if(model.id === e.target.value) setRelationshipFieldId(model.fields[0].id)
-                                                if(model.id === modelId) setCurrentModelFieldId(model.fields[0].id)
+                                            data.models.map((model: any) => {
+                                                if (model.id === e.target.value) setRelationshipFieldId(model.fields[0]?.id)
+                                                if (model.id === modelId) setCurrentModelFieldId(model.fields[0]?.id)
                                                 return model
                                             })
                                         }}
-                                    >   
-                                    {data.models.map((model:any) =><option key={model.id} value={model.id}>{model.name}</option>)}
+                                    >
+                                        {data.models.map((model: any) => <option key={model.id} value={model.id}>{model.name}</option>)}
                                     </select>
                                 </div>
                                 <div className="row">
@@ -117,7 +116,7 @@ const AddRelationship = () => {
                                                 value={currentModelFieldId}
                                                 onChange={e => setCurrentModelFieldId(e.target.value)}
                                             >
-                                                {data.models.map((model:any)=>model.id === modelId?model.fields.map((field:any) =><option key={field.id} value={field.id}>{field.name}</option>):null)}
+                                                {data.models.map((model: any) => model.id === modelId ? model.fields.map((field: any) => <option key={field.id} value={field.id}>{field.name}</option>) : null)}
                                             </select>
                                         </div>
                                     </div>
@@ -132,7 +131,7 @@ const AddRelationship = () => {
                                                 value={relationshipFieldId}
                                                 onChange={e => setRelationshipFieldId(e.target.value)}
                                             >
-                                                {data.models.map((model:any)=>model.id === relationshipModelId?model.fields.map((field:any) =><option key={field.id} value={field.id} >{field.name}</option>):null)}
+                                                {data.models.map((model: any) => model.id === relationshipModelId ? model.fields.map((field: any) => <option key={field.id} value={field.id} >{field.name}</option>) : null)}
 
                                             </select>
                                         </div>
@@ -142,9 +141,8 @@ const AddRelationship = () => {
 
                             </div>
                             <div className="d-flex justify-content-end w-100">
-                                <button onClick={handleAddRelationship} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                                    <AddPage />
-                                    <span className="d-none d-md-inline"> Add Relationship</span>
+                                <button onClick={handleEditRelationship} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                    <span className="d-none d-md-inline"> Update Relationship</span>
                                 </button>
                             </div>
                         </div>
@@ -152,9 +150,9 @@ const AddRelationship = () => {
                     </div>
                 </div>
             </div>
-            {relationshipModalState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
+            {editRelationshipModal.modalState ? <div onClick={handleModelClose} className="modal-backdrop fade show"></div> : null}
         </>
     )
 }
 
-export default AddRelationship
+export default EditRelationship

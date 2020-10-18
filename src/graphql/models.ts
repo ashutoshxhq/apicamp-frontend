@@ -135,6 +135,22 @@ export const UPDATE_FIELD = gql`
   }
 }`;
 
+export const UPDATE_RELATIONSHIP = gql`
+  mutation updateFieldMutation(
+    $id: uuid!
+    $name: String!
+    $model_id: uuid!
+    $type: String!
+    $relationship_model_field_id: uuid!
+    $relationship_model_id: uuid!
+    $model_field_id: uuid!
+  ) {
+    update_relationships(where: {id: {_eq: $id}}, _set: {name: $name type: $type model_id: $model_id relationship_model_field_id:$relationship_model_field_id relationship_model_id: $relationship_model_id model_field_id:$model_field_id}){
+      affected_rows
+  }
+}`;
+
+
 export const DELETE_MODEL = gql`
   mutation deleteModelMutation(
     $id: uuid!
