@@ -9,6 +9,7 @@ export const GET_FIELDS = gql`
         id
         name
         type
+        key
         default
         null_value
         model_id

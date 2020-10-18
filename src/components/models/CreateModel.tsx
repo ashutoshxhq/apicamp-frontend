@@ -1,13 +1,19 @@
 import { useMutation } from '@apollo/client'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { CREATE_MODEL, GET_MODELS } from '../../graphql/models'
 import AddPage from '../../icons/AddPage'
-import { createModelModalState } from '../../store/models'
+import { addFieldModalState, createModelModalState, modelModeState } from '../../store/models'
 
 const CreateModel = () => {
+    const history = useHistory();
+
     const [name, setName] = useState("")
     const [createModelModal, setCreateModelModal] = useRecoilState(createModelModalState)
+    const [, setAddFieldModal] = useRecoilState(addFieldModalState)
+
+    const [, setModelMode] = useRecoilState(modelModeState)
     const [createModelMutation] = useMutation(CREATE_MODEL);
 
     const handleModalClose = () => {
@@ -25,6 +31,10 @@ const CreateModel = () => {
         }).then((res: any) => {
             setName("")
             setCreateModelModal(false)
+            console.log(res.data.insert_models_one.id)
+            setModelMode(1)
+            history.replace("/models/"+res.data.insert_models_one.id);
+            setAddFieldModal(true)
         })
             .catch((error: any) => {
 

@@ -11,6 +11,8 @@ const EditField = () => {
     const [editfieldModal, setEditFieldModal] = useRecoilState(editFieldModalState)
     const [name, setName] = useState("")
     const [type, setType] = useState("string")
+    const [key, setKey] = useState("none")
+
     const [defaultValue, setDefaultValue] = useState("")
     const [nullValue, setNullValue] = useState("NULL")
     const [updateFieldMutation] = useMutation(UPDATE_FIELD);
@@ -22,7 +24,7 @@ const EditField = () => {
                 type,
                 default: defaultValue,
                 null_value: nullValue,
-                key: "none"
+                key: key
             },
             refetchQueries: [{
                 query: GET_MODELS, variables: {
@@ -31,6 +33,7 @@ const EditField = () => {
             }],
         }).then((res: any) => {
             setName("")
+            setKey("none")
             setType("string")
             setDefaultValue("")
             setNullValue("NULL")
@@ -44,6 +47,7 @@ const EditField = () => {
         setName("")
         setType("string")
         setDefaultValue("")
+        setKey("none")
         setNullValue("NULL")
         setEditFieldModal({ id: "", modalState: false })
     }
@@ -56,6 +60,7 @@ const EditField = () => {
         if (data) {
             setName(data.fields[0].name)
             setType(data.fields[0].type)
+            setKey(data.fields[0].key)
             setDefaultValue(data.fields[0].default)
             setNullValue(data.fields[0].null_value)
         }
@@ -67,6 +72,12 @@ const EditField = () => {
             <div className={editfieldModal.modalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
                 <div className="modal-content" >
                     <div className="modal-body">
+                    <div className="row mb-6">
+                        <div className="col-xl-12 text-center">
+                            <h2>Edit Field</h2>
+                        </div>
+
+                        </div>
                         <div className="row">
                             <div className="col-xl-12">
                                 <div className="form-group">
@@ -99,6 +110,19 @@ const EditField = () => {
 
                                     </select>
                                 </div>
+                                
+                                <div className="form-group px-2">
+                                    <label>Value Type</label>
+                                    <div className="radio-inline">
+                                        <label className="radio">
+                                            <input type="radio" checked={nullValue === "NULL"} onChange={e => { setNullValue(e.target.value) }} value="NULL" />
+                                            <span></span>Null Value</label>
+                                        <label className="radio">
+                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e => { setNullValue(e.target.value) }} value="NOT_NULL" />
+                                            <span></span>Not Null</label>
+
+                                    </div>
+                                </div>
                                 <div className="form-group">
                                     <label>Default Value</label>
                                     <input
@@ -110,15 +134,18 @@ const EditField = () => {
                                         onChange={e => { setDefaultValue(e.target.value) }}
                                     />
                                 </div>
-                                <div className="form-group px-6">
-                                    <label>Null Value</label>
+                                <div className="form-group px-2">
+                                    <label>Key Type</label>
                                     <div className="radio-inline">
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NULL"} onChange={e => { setNullValue(e.target.value) }} value="NULL" />
-                                            <span></span>Can Be Null</label>
+                                            <input type="radio" checked={key === "none"} onChange={e => { setKey(e.target.value) }} value="none" />
+                                            <span></span>None</label>
                                         <label className="radio">
-                                            <input type="radio" checked={nullValue === "NOT_NULL"} onChange={e => { setNullValue(e.target.value) }} value="NOT_NULL" />
-                                            <span></span>Cannot Be Null</label>
+                                            <input type="radio" checked={key === "PRIMARY_KEY"} onChange={e => { setKey(e.target.value) }} value="PRIMARY_KEY" />
+                                            <span></span>Primary Key</label>
+                                        <label className="radio">
+                                            <input type="radio" checked={key === "UNIQUE_KEY"} onChange={e => { setKey(e.target.value) }} value="UNIQUE_KEY" />
+                                            <span></span>Unique Key</label>
 
                                     </div>
                                 </div>
