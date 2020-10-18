@@ -85,6 +85,20 @@ export const CREATE_FIELD = gql`
   }
 }`;
 
+export const CREATE_RELATIONSHIP = gql`
+  mutation createRelationshipMutation(
+    $name: String!
+    $model_id: uuid!
+    $type: String!
+    $relationship_model_field_id: uuid!
+    $relationship_model_id: uuid!
+    $model_field_id: uuid!
+  ) {
+    insert_relationships_one(object: {model_id: $model_id, name: $name, type: $type, relationship_model_field_id: $relationship_model_field_id, relationship_model_id: $relationship_model_id, model_field_id: $model_field_id}){
+      id
+  }
+}`;
+
 export const CREATE_MODEL = gql`
   mutation createModelMutation(
     $name: String!

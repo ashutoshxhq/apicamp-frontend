@@ -26,7 +26,6 @@ const EditModel = () => {
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
             setEditModelModal(false)
-            console.log(res)
         }).catch((error: any) => {
                 console.log(error);
             });
@@ -39,7 +38,6 @@ const EditModel = () => {
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
             setEditModelModal(false)
-            console.log("DELETED:", res)
             history.replace("/models");
         })
             .catch((error: any) => {
@@ -59,7 +57,6 @@ const EditModel = () => {
     }, [setName, data])
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return null;
-    if (data) console.log(data)
     if (!editModelModal) return (null)
     return (
         <>

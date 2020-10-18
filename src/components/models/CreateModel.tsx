@@ -25,7 +25,6 @@ const CreateModel = () => {
         }).then((res: any) => {
             setName("")
             setCreateModelModal(false)
-            console.log(res)
         })
             .catch((error: any) => {
 

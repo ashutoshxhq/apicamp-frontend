@@ -35,7 +35,6 @@ const EditField = () => {
             setDefaultValue("")
             setNullValue("NULL")
             setEditFieldModal({ id: "", modalState: false })
-            console.log(res)
         })
             .catch((error: any) => {
                 console.log(error);
@@ -48,7 +47,6 @@ const EditField = () => {
         setNullValue("NULL")
         setEditFieldModal({ id: "", modalState: false })
     }
-    console.log(type)
     const { loading, error, data } = useQuery(GET_FIELDS, {
         variables: {
             id: editfieldModal.id,
@@ -64,7 +62,6 @@ const EditField = () => {
     }, [setName, setNullValue, setDefaultValue, setType, data])
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
-    if (data) console.log(data)
     return (
         <>
             <div className={editfieldModal.modalState ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>

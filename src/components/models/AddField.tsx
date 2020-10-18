@@ -36,7 +36,6 @@ const AddField = () => {
             setType("string")
             setDefaultValue("")
             setNullValue("NULL")
-            console.log(res)
         })
             .catch((error: any) => {
                 console.log(error);
@@ -49,7 +48,6 @@ const AddField = () => {
         setNullValue("NULL")
         setAddFieldModal(false)
     }
-    console.log(type)
     return (
         <>
             <div className={addfieldModal ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>

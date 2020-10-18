@@ -30,7 +30,6 @@ const ModelRelationships = () => {
     });
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
-    if (data) console.log(data)
     return (
         <div className="card card-custom mt-6">
             <div className="card-header border-0 py-5">

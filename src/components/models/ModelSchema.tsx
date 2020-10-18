@@ -32,7 +32,6 @@ const ModelSchema = () => {
                 id: modelId,
             }, }],
         }).then((res:any) => {
-            console.log(res)
         })
         .catch((error:any) => {
             console.log(error);
@@ -45,7 +44,6 @@ const ModelSchema = () => {
     });
     if (error) return <p>Error :( {error.message}</p>;
     if (loading) return <p>Loading...</p>;
-    if (data) console.log(data)
     return (
         <>
             <div className="card card-custom">
