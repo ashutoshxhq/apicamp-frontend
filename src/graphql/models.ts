@@ -161,6 +161,9 @@ export const DELETE_MODEL = gql`
     delete_fields(where: {model_id: {_eq: $id}}) {
       affected_rows
   }
+  delete_relationships(where: {model_id: {_eq: $id}}) {
+      affected_rows
+  }
 }`;
 
 export const DELETE_FIELD = gql`
