@@ -19,23 +19,25 @@ const ModelSchema = () => {
     const handleOpenAddFieldModel = () => {
         setFieldModal(true)
     }
-    
-    const handleOpenEditFieldModel = (id:any) => {
-        setEditFieldModal({modalState:true,id})
+
+    const handleOpenEditFieldModel = (id: any) => {
+        setEditFieldModal({ modalState: true, id })
     }
-    const handleDeleteField = (id:any) => {
+    const handleDeleteField = (id: any) => {
         deleteFieldMutation({
             variables: {
                 id
             },
-            refetchQueries: [{ query: GET_MODELS, variables: {
-                id: modelId,
-            }, }],
-        }).then((res:any) => {
+            refetchQueries: [{
+                query: GET_MODELS, variables: {
+                    id: modelId,
+                },
+            }],
+        }).then((res: any) => {
         })
-        .catch((error:any) => {
-            console.log(error);
-        });
+            .catch((error: any) => {
+                console.log(error);
+            });
     }
     const { loading, error, data } = useQuery(GET_MODELS, {
         variables: {
@@ -58,7 +60,7 @@ const ModelSchema = () => {
                             <span className="d-none d-md-inline"> Add New Field</span>
                         </button>
                         <AddField />
-                        {editfieldModal.modalState?<EditField />:null}
+                        {editfieldModal.modalState ? <EditField /> : null}
 
                     </div>
                 </div>
@@ -73,7 +75,7 @@ const ModelSchema = () => {
                                 id="kt_advance_table_widget_1"
                             >
                                 <thead>
-                                    
+
                                     <tr className="text-left">
                                         <th className="pl-0" style={{ width: "20px" }}>
                                             <label className="checkbox checkbox-lg checkbox-inline">
@@ -88,7 +90,8 @@ const ModelSchema = () => {
 
 
                                         <th className="text-left" style={{ minWidth: "150px" }}>null value</th>
-                                        <th style={{ minWidth: "150px" }}>default</th>
+                                        <th style={{ minWidth: "150px" }}>default value</th>
+                                        <th style={{ minWidth: "150px" }}>key</th>
                                         <th
                                             className="pr-0 text-right"
                                             style={{ minWidth: "150px" }}
@@ -98,7 +101,7 @@ const ModelSchema = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {data.models[0].fields.map((field:any) => <tr key={field.id}>
+                                    {data.models[0].fields.map((field: any) => <tr key={field.id}>
                                         <td className="pl-0">
                                             <label className="checkbox checkbox-lg checkbox-inline">
                                                 <input type="checkbox" value="1" />
@@ -118,27 +121,35 @@ const ModelSchema = () => {
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
-                                                type: {field.type}, key: {field.key}
-                            </span>
+                                                type: {field.type}
+                                            </span>
                                         </td>
                                         <td className="">
                                             <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                                            {field.null_value === "NULL"?"Null":"Not Null"}
+                                                {field.null_value === "NULL" ? "Null" : "Not Null"}
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
-                                            {field.null_value === "NULL"?"value can be null":"value cannot be null"}
-                            </span>
+                                                {field.null_value === "NULL" ? "value can be null" : "value cannot be null"}
+                                            </span>
 
                                         </td>
                                         <td className="">
                                             <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
-                                            {field.default=== ""?"-":field.default}
+                                                {field.default === "" ? "-" : field.default}
 
                                             </span>
                                             <span className="text-muted font-weight-bold">
-                                            {field.default === "generateUUID"?"generates new uuid":null} 
-                            </span>
+                                                {field.default === "generateUUID" ? "generates new uuid" : null}
+                                            </span>
+
+                                        </td>
+
+                                        <td className="">
+                                            <span className="text-dark-75 font-weight-bolder d-block font-size-lg">
+                                                {field.key}
+                                            </span>
+                                            
 
                                         </td>
 
@@ -146,7 +157,7 @@ const ModelSchema = () => {
                                         <td className="pr-0 text-right">
 
                                             <button
-                                               onClick={()=>handleOpenEditFieldModel(field.id)}
+                                                onClick={() => handleOpenEditFieldModel(field.id)}
                                                 className="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
                                             >
                                                 <span className="svg-icon svg-icon-md svg-icon-primary">
@@ -182,7 +193,7 @@ const ModelSchema = () => {
                                                 </span>
                                             </button>
                                             <button
-                                                onClick={()=>handleDeleteField(field.id)}
+                                                onClick={() => handleDeleteField(field.id)}
                                                 className="btn btn-icon btn-light btn-hover-primary btn-sm"
                                             >
                                                 <span className="svg-icon svg-icon-md svg-icon-primary">
@@ -217,8 +228,8 @@ const ModelSchema = () => {
                                             </button>
                                         </td>
                                     </tr>)}
-                                   
-                                    
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -227,7 +238,7 @@ const ModelSchema = () => {
                 </div>
             </div>
 
-            
+
         </>
     )
 }
