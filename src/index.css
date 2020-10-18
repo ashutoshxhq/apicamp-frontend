@@ -42,7 +42,7 @@
 .models-aside-background {
     background-image: url("/build.svg");
     background-repeat: no-repeat;
-    background-position-y: calc(100% - 88px);
+    background-position-y: calc(100% - 85px);
     background-size: contain;
 }
 .bg-white-gradient {
