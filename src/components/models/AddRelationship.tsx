@@ -37,11 +37,11 @@ const AddRelationship = () => {
                 },
             }],
         }).then((res: any) => {
-           setName("")
-           setType("object")
-           setCurrentModelFieldId("")
-           setRelationshipFieldId("")
-           setCurrentModelFieldId("")
+            setName("")
+            setType("object")
+            setCurrentModelFieldId("")
+            setRelationshipFieldId("")
+            setCurrentModelFieldId("")
             setRelationshipModalState(false)
         })
             .catch((error: any) => {
