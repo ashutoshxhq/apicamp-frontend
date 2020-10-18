@@ -155,3 +155,12 @@ export const DELETE_FIELD = gql`
       affected_rows
   }
 }`;
+
+export const DELETE_RELATIONSHIP = gql`
+  mutation deleteRelationshipMutation(
+    $id: uuid!
+  ) {
+    delete_relationships(where: {id: {_eq: $id}}) {
+      affected_rows
+  }
+}`;

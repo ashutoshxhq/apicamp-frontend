@@ -5,14 +5,15 @@ import { addRelationshipModalState } from '../../store/models'
 import AddField from './AddField'
 import AddRelationship from './AddRelationship'
 import Text from '../../icons/Text'
-import { useQuery } from '@apollo/client'
-import { GET_RELATIONSHIPS } from '../../graphql/models'
+import { useMutation, useQuery } from '@apollo/client'
+import { DELETE_RELATIONSHIP, GET_RELATIONSHIPS } from '../../graphql/models'
 import { useParams } from 'react-router-dom'
 
 const ModelRelationships = () => {
     const { modelId } = useParams<any>();
 
     const [, setRelationshipModal] = useRecoilState(addRelationshipModalState)
+    const [deleteRelationshipMutation] = useMutation(DELETE_RELATIONSHIP);
 
     const handleOpenAddRelationshipModel = () => {
         setRelationshipModal(true)
@@ -21,7 +22,19 @@ const ModelRelationships = () => {
 
     }
     const handleDeleteRelationship = (id:any) =>{
-
+        deleteRelationshipMutation({
+            variables: {
+                id
+            },
+            refetchQueries: [{ query: GET_RELATIONSHIPS, variables: {
+                model_id: modelId,
+            }, }],
+        }).then((res:any) => {
+            
+        })
+        .catch((error:any) => {
+            console.log(error);
+        });
     }
     const { loading, error, data } = useQuery(GET_RELATIONSHIPS, {
         variables: {

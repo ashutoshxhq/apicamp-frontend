@@ -33,7 +33,7 @@ const AddRelationship = () => {
             },
             refetchQueries: [{
                 query: GET_RELATIONSHIPS, variables: {
-                    id: modelId,
+                    model_id: modelId,
                 },
             }],
         }).then((res: any) => {
