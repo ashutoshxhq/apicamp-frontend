@@ -15,7 +15,6 @@ import MediaStorage from './components/storage/MediaStorage';
 import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
 import ModelsOverview from './components/models/ModelsOverview';
-import Chat from './icons/Chat';
 import QuestionMark from './icons/QuestionMark';
 
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
