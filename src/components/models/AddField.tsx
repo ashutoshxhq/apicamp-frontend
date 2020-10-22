@@ -8,7 +8,18 @@ import { addFieldModalState } from '../../store/models'
 
 const AddField = () => {
     const { modelId } = useParams<any>();
-
+    const fieldTypes = [
+        { value: 'uuid', title: 'UUID' },
+        { value: 'string', title: 'String' },
+        { value: 'string', title: 'Hashed String' },
+        { value: 'bool', title: 'Boolean' },
+        { value: 'int32', title: 'Integer (32)' },
+        { value: 'int64', title: 'Integer (64)' },
+        { value: 'uint32', title: 'Unsigned Integer (32)' },
+        { value: 'uint64', title: 'Unsigned Integer (64)' },
+        { value: 'double', title: 'Double' },
+        { value: 'float', title: 'Float' },
+      ];
     const [addfieldModal, setAddFieldModal] = useRecoilState(addFieldModalState)
     const [name, setName] = useState("")
     const [type, setType] = useState("string")
@@ -86,13 +97,7 @@ const AddField = () => {
                                         value={type}
                                         onChange={e => { setType(e.target.value) }}
                                     >
-                                        <option value="string">String</option>
-                                        <option value="number">Number</option>
-                                        <option value="boolean">Boolean</option>
-                                        <option value="uuid">UUID</option>
-                                        <option value="hashed_string">Hashed String</option>
-                                        <option value="encrypted_String">Encrypted String</option>
-
+                                        {fieldTypes.map(fieldType =><option value={fieldType.value}>{fieldType.title}</option> )}
                                     </select>
                                 </div>
                                 
