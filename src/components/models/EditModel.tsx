@@ -72,7 +72,7 @@ const EditModel = () => {
                                         className="form-control form-control-solid form-control-lg"
                                         name="name"
                                         value={name}
-                                        onChange={e => { setName(e.target.value.replace(/\s+(.)/g,c => c.toUpperCase().replace(/\s+/g, '')).replace(/[&/\\#,+()$~%.'":*!?@^_=<>{}]/g, '')) }}
+                                        onChange={e => { setName(e.target.value.replace(/\s+(.)/g,c => c.toUpperCase().replace(/\s+/g, '')).replace(/[&/\\#,+()$~%.'":*!?@^_\-=<>{}]/g, '')) }}
                                         placeholder="Name"
                                     />
                                 </div>

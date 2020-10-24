@@ -85,7 +85,7 @@ const AddField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={name}
-                                        onChange={e => { setName(e.target.value.replace(/\s+(.)/g,c => c.toUpperCase().replace(/\s+/g, '')).replace(/[&/\\#,+()$~%.'":*!?@^_=<>{}]/g, '')) }}
+                                        onChange={e => { setName(e.target.value.replace(/\s+(.)/g,c => c.toUpperCase().replace(/\s+/g, '')).replace(/[&/\\#,+()$~%.'":*!?@^_\-=<>{}]/g, '')) }}
                                     />
                                 </div>
                                 <div className="form-group">
