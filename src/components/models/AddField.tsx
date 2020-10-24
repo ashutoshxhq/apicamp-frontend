@@ -63,6 +63,7 @@ const AddField = () => {
         setNullValue("NULL")
         setAddFieldModal(false)
     }
+    console.log(name)
     return (
         <>
             <div className={addfieldModal ? "modal fade show model-show" : "modal fade"} style={{ width: "30%", height: "fit-content", margin: "10% 35%" }}>
@@ -84,7 +85,7 @@ const AddField = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={name}
-                                        onChange={e => { setName(e.target.value) }}
+                                        onChange={e => { setName(e.target.value.replace(/\s+(.)/g,c => c.toUpperCase().replace(/\s+/g, '')).replace(/[&/\\#,+()$~%.'":*!?@^_=<>{}]/g, '')) }}
                                     />
                                 </div>
                                 <div className="form-group">
