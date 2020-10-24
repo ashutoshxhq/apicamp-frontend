@@ -2,7 +2,6 @@ import React from 'react'
 import Bookmark from './icons/Bookmark'
 import Cloud from './icons/Cloud'
 import Extensions from './icons/Extensions'
-import Pantone from './icons/Pantone'
 import Settings from './icons/Settings'
 import { NavLink, useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
@@ -14,6 +13,7 @@ import { useQuery } from '@apollo/client'
 import { GET_MODELS } from './graphql/models'
 import Right from './icons/Right'
 import Plus from './icons/Plus'
+import Lock from './icons/Lock'
 
 const Aside = () => {
     const location = useLocation();
@@ -37,7 +37,7 @@ const Aside = () => {
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Metronic Features">
                             <NavLink to="/functions" className="nav-link btn btn-icon btn-clean btn-lg " data-toggle="tab" data-target="#kt_aside_tab_2" role="tab" aria-selected="false">
-                                <Pantone />
+                                <Lock />
                             </NavLink>
                         </li>
                         <li className="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Project Management">

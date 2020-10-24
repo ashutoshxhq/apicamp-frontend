@@ -2,7 +2,7 @@ import React from 'react'
 
 const Lock = () => {
     return (
-        <span className="svg-icon svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+        <span className="svg-icon svg-icon-2-5x"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <mask fill="white">
                     <use xlinkHref="#path-1" />
