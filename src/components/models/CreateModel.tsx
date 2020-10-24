@@ -26,6 +26,7 @@ const CreateModel = () => {
         createModelMutation({
             variables: {
                 name,
+                service_id: "bebcaf8c-a0d7-4504-ae1c-4398071a0eb1"
             },
             refetchQueries: [{ query: GET_MODELS }],
         }).then((res: any) => {
