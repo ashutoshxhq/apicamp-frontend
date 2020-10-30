@@ -1,5 +1,5 @@
 import React from 'react'
-import AddPage from '../../icons/AddPage'
+import Plus from '../../icons/Plus'
 
 const ModelData = () => {
 
@@ -13,7 +13,7 @@ const ModelData = () => {
           </h3>
           <div className="card-toolbar">
             <button className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-              <AddPage />
+              <Plus />
               <span className="d-none d-md-inline"> Add New Record</span>
             </button>
           </div>

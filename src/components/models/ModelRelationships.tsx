@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import AddPage from '../../icons/AddPage'
 import { addRelationshipModalState, editRelationshipModalState } from '../../store/models'
 import AddRelationship from './AddRelationship'
 import Text from '../../icons/Text'
@@ -8,6 +7,7 @@ import { useMutation, useQuery } from '@apollo/client'
 import { DELETE_RELATIONSHIP, GET_RELATIONSHIPS } from '../../graphql/models'
 import { useParams } from 'react-router-dom'
 import EditRelationship from './EditRelationship'
+import Plus from '../../icons/Plus'
 
 const ModelRelationships = () => {
     const { modelId } = useParams<any>();
@@ -55,7 +55,7 @@ const ModelRelationships = () => {
                 </h3>
                 <div className="card-toolbar">
                     <button onClick={handleOpenAddRelationshipModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                        <AddPage />
+                        <Plus />
                         <span className="d-none d-md-inline"> Create New Relationship</span>
                     </button>
                     <AddRelationship />

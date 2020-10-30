@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { CREATE_FIELD, GET_MODELS } from '../../graphql/models'
-import AddPage from '../../icons/AddPage'
+import Plus from '../../icons/Plus'
 import { addFieldModalState } from '../../store/models'
 
 const AddField = () => {
@@ -143,7 +143,7 @@ const AddField = () => {
                             </div>
                             <div className="d-flex justify-content-end w-100">
                                 <button onClick={handleCreateField} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                                    <AddPage />
+                                    <Plus />
                                     <span className="d-none d-md-inline"> Add Field</span>
                                 </button>
                             </div>

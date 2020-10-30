@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import AddPage from '../../icons/AddPage'
 import Text from '../../icons/Text'
 import { addFieldModalState, editFieldModalState } from '../../store/models'
 import AddField from './AddField'
@@ -8,6 +7,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_FIELD, GET_MODELS } from '../../graphql/models';
 import { useParams } from 'react-router-dom'
 import EditField from './EditField'
+import Plus from '../../icons/Plus'
 
 const ModelSchema = () => {
     const { modelId } = useParams<any>();
@@ -56,7 +56,7 @@ const ModelSchema = () => {
                     </h3>
                     <div className="card-toolbar">
                         <button onClick={handleOpenAddFieldModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                            <AddPage />
+                            <Plus />
                             <span className="d-none d-md-inline"> Add New Field</span>
                         </button>
                         <AddField />

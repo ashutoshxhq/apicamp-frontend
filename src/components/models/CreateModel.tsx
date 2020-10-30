@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { CREATE_MODEL, GET_MODELS } from '../../graphql/models'
-import AddPage from '../../icons/AddPage'
+import Plus from '../../icons/Plus'
 import { addFieldModalState, createModelModalState, modelModeState } from '../../store/models'
 
 const CreateModel = () => {
@@ -64,7 +64,7 @@ const CreateModel = () => {
                             </div>
                             <div className="d-flex justify-content-end w-100">
                                 <button onClick={handleCreateModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                                    <AddPage />
+                                    <Plus />
                                     <span className="d-none d-md-inline"> Add Model</span>
                                 </button>
                             </div>
