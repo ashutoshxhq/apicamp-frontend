@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import Download from '../../icons/Download'
+import CloudDownload from '../../icons/CloudDownload'
 import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
 import PenAndRuler from '../../icons/PenAndRuler'
@@ -36,8 +36,8 @@ const ModelSubheader = () => {
                             <Edit />
                             <span className="d-none d-md-inline"> Edit Model</span>
                         </button>
-                        <button onClick={() => { }} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                            <Download />
+                        <button onClick={() => { }} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                            <CloudDownload />
                             <span className="d-none d-md-inline"> Source Code</span>
                         </button>
                     </div>

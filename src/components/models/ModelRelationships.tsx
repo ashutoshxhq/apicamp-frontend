@@ -54,7 +54,7 @@ const ModelRelationships = () => {
                     <span className="text-muted mt-3 font-weight-bold font-size-sm">1 relationships</span>
                 </h3>
                 <div className="card-toolbar">
-                    <button onClick={handleOpenAddRelationshipModel} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                    <button onClick={handleOpenAddRelationshipModel} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                         <Plus />
                         <span className="d-none d-md-inline"> Create New Relationship</span>
                     </button>
