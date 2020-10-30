@@ -16,7 +16,6 @@ import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
 import ModelsOverview from './components/models/ModelsOverview';
 
-
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
 
 console.log(`${API_URL}`);

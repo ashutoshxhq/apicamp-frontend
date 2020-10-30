@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
+import Code from '../../icons/Code'
 import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
-import Left from '../../icons/Left'
 import PenAndRuler from '../../icons/PenAndRuler'
 import { editModelModalState, modelModeState } from '../../store/models'
 
@@ -17,9 +17,9 @@ const ModelSubheader = () => {
             <div className="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
                 <div className="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                     <div className="d-flex align-items-center flex-wrap mr-2">
-                    <button onClick={() => {}} className="btn btn-secondary btn-fixed-height font-weight-bold mr-2">
-                            <Left />
-                            <span className="d-none d-md-inline">Back</span>
+                    <button onClick={() => setEditModelModal(true)} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                            <Edit />
+                            <span className="d-none d-md-inline"> Edit Model</span>
                         </button>
 
                     </div>
@@ -34,9 +34,9 @@ const ModelSubheader = () => {
                         </div>
                     </div>
                     <div className="d-flex align-items-center flex-wrap">
-                        <button onClick={() => setEditModelModal(true)} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
-                            <Edit />
-                            <span className="d-none d-md-inline"> Edit Model</span>
+                        <button onClick={() => {}} className="btn btn-secondary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                            <Code />
+                            <span className="d-none d-md-inline"> Generate Code</span>
                         </button>
                     </div>
                 </div>
