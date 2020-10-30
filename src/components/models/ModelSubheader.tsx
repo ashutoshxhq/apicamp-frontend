@@ -2,6 +2,7 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
+import Left from '../../icons/Left'
 import PenAndRuler from '../../icons/PenAndRuler'
 import { editModelModalState, modelModeState } from '../../store/models'
 
@@ -16,9 +17,10 @@ const ModelSubheader = () => {
             <div className="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
                 <div className="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
                     <div className="d-flex align-items-center flex-wrap mr-2">
-                        <h5 className="text-dark font-weight-bold mt-2 mb-2 mr-5">Models</h5>
-                        <div className="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
-                        <span className="text-muted font-weight-bold mr-4">Users</span>
+                    <button onClick={() => {}} className="btn btn-secondary btn-fixed-height font-weight-bold mr-2">
+                            <Left />
+                            <span className="d-none d-md-inline">Back</span>
+                        </button>
 
                     </div>
                     <div className="d-flex justify-content-between align-items-center" style={{ height: 55 }}>

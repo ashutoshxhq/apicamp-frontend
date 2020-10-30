@@ -87,6 +87,7 @@ const ModelAside = () => {
         <>
             <div className="tab-content" style={{overflowY:"scroll"}}>
                 <div className="tab-pane  pb-0 p-3 px-lg-7 py-lg-5 fade active show" id="kt_aside_tab_1">
+
                    <div className="d-flex justify-content-between align-items-center">
                         <h3 className="p-2 p-lg-3 my-1 my-lg-3">Models</h3>
                         <button onClick={() => setCreateModelModal(true)} className="btn btn-circle btn-secondary btn-icon btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2"><Plus/> </button>
