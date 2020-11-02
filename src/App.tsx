@@ -16,6 +16,9 @@ import Extensions from './icons/Extensions';
 import Models from './components/models/Models';
 import ModelsOverview from './components/models/ModelsOverview';
 import QuestionMark from './icons/QuestionMark';
+import SourceCode from './components/SourceCode';
+import { useRecoilState } from 'recoil';
+import { generateServiceSourceCodeState } from './store/service';
 
 const API_URL = "https://apicamp-graphql.herokuapp.com/v1/graphql";
 
@@ -42,6 +45,8 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [generateServiceSourceCode,] = useRecoilState(generateServiceSourceCodeState)
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -55,6 +60,7 @@ function App() {
           <PrivateRoute path="/settings" exact component={Settings} />
           <Route path="/login" exact component={Login} />
         </Switch>
+        {generateServiceSourceCode.modalState?<SourceCode/>:null}
       </Router>
     </ApolloProvider>
   );

@@ -5,8 +5,10 @@ import Edit from '../../icons/Edit'
 import HardDrive from '../../icons/HardDrive'
 import PenAndRuler from '../../icons/PenAndRuler'
 import { editModelModalState, modelModeState } from '../../store/models'
+import { generateServiceSourceCodeState } from '../../store/service'
 
 const ModelSubheader = () => {
+    const [, setGenerateServiceSourceCode] = useRecoilState(generateServiceSourceCodeState)
     const [, setEditModelModal] = useRecoilState(editModelModalState)
     const [modelMode, setModelMode] = useRecoilState(modelModeState)
     const handleModeChange = (mode: number) => {
@@ -36,7 +38,7 @@ const ModelSubheader = () => {
                             <Edit />
                             <span className="d-none d-md-inline"> Edit Model</span>
                         </button>
-                        <button onClick={() => { }} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                        <button onClick={() => { setGenerateServiceSourceCode({id:"", modalState:true})}} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                             <CloudDownload />
                             <span className="d-none d-md-inline"> Source Code</span>
                         </button>

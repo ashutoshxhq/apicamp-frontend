@@ -1,7 +1,11 @@
 import React from 'react'
+import { useRecoilState } from 'recoil'
 import CloudDownload from '../../icons/CloudDownload'
+import { generateServiceSourceCodeState } from '../../store/service'
 
 const ModelsOverview = () => {
+    const [, setGenerateServiceSourceCode] = useRecoilState(generateServiceSourceCodeState)
+
     return (
         <div className="content d-flex flex-column flex-column-fluid">
             <div className="d-flex flex-column-fluid">
@@ -15,7 +19,7 @@ const ModelsOverview = () => {
 
                             <div className="d-flex align-items-center flex-wrap">
 
-                                <button onClick={() => { }} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
+                                <button onClick={() => { setGenerateServiceSourceCode({id:"", modalState:true})}} className="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2">
                                     <CloudDownload />
                                     <span className="d-none d-md-inline"> Source Code</span>
                                 </button>
