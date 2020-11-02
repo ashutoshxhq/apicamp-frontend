@@ -6,27 +6,33 @@ import { generateServiceSourceCodeState } from '../store/service'
 
 const SourceCode = () => {
     const [percent, setPercent] = useState(20)
+    const [loading, setLoading] = useState(true)
     const [generateServiceSourceCode, setGenerateServiceSourceCode] = useRecoilState(generateServiceSourceCodeState)
     const handleModelClose = () => {
         setGenerateServiceSourceCode({ ...generateServiceSourceCode, modalState: false })
     }
     useEffect(() => {
-        setTimeout( () => {setPercent(40) }, 1000 );
-        setTimeout( () => {setPercent(60) }, 2000 );
-        setTimeout( () => {setPercent(80) }, 3000 );
-        
+        setTimeout(() => {
+            if (loading) {
+                setPercent(60)
+            }
+        }, 300);
+
         Axios.post("http://localhost:8000/services/generateCode", {
             "serviceId": "bebcaf8c-a0d7-4504-ae1c-4398071a0eb1"
         }).then(function (response) {
+            setLoading(false)
             setPercent(100)
             console.log(response);
-            setTimeout( () => {setGenerateServiceSourceCode({ ...generateServiceSourceCode, modalState:false})}, 1000 );
-            
+            setTimeout(() => {
+                setGenerateServiceSourceCode({ ...generateServiceSourceCode, modalState: false })
+                window.open(response.data.download);
+            }, 1000);
         }).catch(function (error) {
             console.log(error);
         })
 
-    }, [setPercent,setGenerateServiceSourceCode,generateServiceSourceCode])
+    }, [setPercent, percent, setGenerateServiceSourceCode, generateServiceSourceCode, loading, setLoading])
 
     return (
         <>
